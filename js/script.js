@@ -1,5 +1,6 @@
 import {
     FaceLandmarker,
+    HandLandmarker,
     FilesetResolver
 } from "https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@latest";
 
@@ -12,6 +13,7 @@ const suggestionText = document.getElementById("suggestionText");
 
 let stream = null;
 let faceLandmarker = null;
+let handLandmarker = null;
 let detectionAnimationId = null;
 let lastVideoTime = -1;
 
@@ -19,9 +21,12 @@ let photoStripImages = [];
 let isPhotoboothRunning = false;
 let selectedTemplate = "cute";
 
+let autoCaptureStarted = false;
+let lastFiveFingerDetectedAt = 0;
+
 async function startCamera() {
     try {
-        suggestionText.textContent = "Menyiapkan kamera dan model AI...";
+        suggestionText.textContent = "Menyiapkan kamera...";
 
         stream = await navigator.mediaDevices.getUserMedia({
             video: true,
@@ -31,16 +36,41 @@ async function startCamera() {
         video.srcObject = stream;
 
         await waitVideoReady();
+
+        suggestionText.textContent = "Kamera aktif. Menyiapkan model AI...";
+
         await initMediaPipe();
 
         suggestionText.textContent =
-            "Kamera aktif. Arahkan wajah ke kamera dan tampilkan ekspresi terbaikmu.";
+            "Kamera dan model AI aktif. Tunjukkan 5 jari untuk auto capture.";
 
-        startMediaPipeExpressionDetection();
+        startMediaPipeDetection();
     } catch (error) {
-        alert("Kamera tidak bisa diakses. Pastikan izin kamera sudah diberikan.");
-        console.error(error);
-        suggestionText.textContent = "Kamera gagal diakses.";
+        console.error("ERROR DETAIL:", error);
+
+        if (
+            error.name === "NotAllowedError" ||
+            error.name === "PermissionDeniedError"
+        ) {
+            alert("Izin kamera ditolak. Izinkan kamera di browser dulu.");
+            suggestionText.textContent = "Izin kamera ditolak.";
+        } else if (
+            error.name === "NotFoundError" ||
+            error.name === "DevicesNotFoundError"
+        ) {
+            alert("Kamera tidak ditemukan.");
+            suggestionText.textContent = "Kamera tidak ditemukan.";
+        } else if (
+            error.name === "NotReadableError" ||
+            error.name === "TrackStartError"
+        ) {
+            alert("Kamera sedang dipakai aplikasi lain.");
+            suggestionText.textContent = "Kamera sedang dipakai aplikasi lain.";
+        } else {
+            alert("Terjadi error saat menjalankan kamera atau model AI. Cek console.");
+            suggestionText.textContent =
+                "Error kamera/model AI. Buka Inspect > Console untuk detail.";
+        }
     }
 }
 
@@ -59,22 +89,36 @@ function waitVideoReady() {
 }
 
 async function initMediaPipe() {
-    if (faceLandmarker) return;
+    if (faceLandmarker && handLandmarker) return;
 
     const vision = await FilesetResolver.forVisionTasks(
         "https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@latest/wasm"
     );
 
-    faceLandmarker = await FaceLandmarker.createFromOptions(vision, {
-        baseOptions: {
-            modelAssetPath:
-                "https://storage.googleapis.com/mediapipe-models/face_landmarker/face_landmarker/float16/latest/face_landmarker.task",
-            delegate: "GPU"
-        },
-        runningMode: "VIDEO",
-        numFaces: 1,
-        outputFaceBlendshapes: true
-    });
+    if (!faceLandmarker) {
+        faceLandmarker = await FaceLandmarker.createFromOptions(vision, {
+            baseOptions: {
+                modelAssetPath:
+                    "https://storage.googleapis.com/mediapipe-models/face_landmarker/face_landmarker/float16/latest/face_landmarker.task",
+                delegate: "CPU"
+            },
+            runningMode: "VIDEO",
+            numFaces: 1,
+            outputFaceBlendshapes: true
+        });
+    }
+
+    if (!handLandmarker) {
+        handLandmarker = await HandLandmarker.createFromOptions(vision, {
+            baseOptions: {
+                modelAssetPath:
+                    "https://storage.googleapis.com/mediapipe-models/hand_landmarker/hand_landmarker/float16/latest/hand_landmarker.task",
+                delegate: "CPU"
+            },
+            runningMode: "VIDEO",
+            numHands: 1
+        });
+    }
 }
 
 function stopCamera() {
@@ -94,7 +138,14 @@ function stopCamera() {
         faceLandmarker = null;
     }
 
+    if (handLandmarker) {
+        handLandmarker.close();
+        handLandmarker = null;
+    }
+
     lastVideoTime = -1;
+    autoCaptureStarted = false;
+    lastFiveFingerDetectedAt = 0;
     isPhotoboothRunning = false;
 
     expressionBadge.textContent = "Ekspresi: -";
@@ -109,17 +160,21 @@ function takePhoto() {
         return;
     }
 
-    if (isPhotoboothRunning) {
-        alert("Sesi photobooth sedang berjalan.");
+    if (isPhotoboothRunning || autoCaptureStarted) {
+        alert("Sesi photobooth/countdown sedang berjalan.");
         return;
     }
 
-    let count = 3;
+    startSinglePhotoCountdown(3, "Siap-siap, foto akan diambil!");
+}
+
+function startSinglePhotoCountdown(startCount = 3, message = "Siap-siap, foto akan diambil!") {
+    let count = startCount;
 
     countdown.style.display = "flex";
     countdown.textContent = count;
 
-    suggestionText.textContent = "Siap-siap, foto akan diambil!";
+    suggestionText.textContent = message;
 
     const timer = setInterval(() => {
         count--;
@@ -172,8 +227,8 @@ function startPhotoboothSession() {
         return;
     }
 
-    if (isPhotoboothRunning) {
-        alert("Sesi photobooth sedang berjalan.");
+    if (isPhotoboothRunning || autoCaptureStarted) {
+        alert("Sesi photobooth/countdown sedang berjalan.");
         return;
     }
 
@@ -408,25 +463,30 @@ function roundedRect(ctx, x, y, width, height, radius) {
     ctx.closePath();
 }
 
-function startMediaPipeExpressionDetection() {
+function startMediaPipeDetection() {
     if (detectionAnimationId) {
         cancelAnimationFrame(detectionAnimationId);
     }
 
-    detectExpressionLoop();
+    detectLoop();
 }
 
-function detectExpressionLoop() {
-    if (!stream || !faceLandmarker) return;
+function detectLoop() {
+    if (!stream || !faceLandmarker || !handLandmarker) return;
 
     if (video.currentTime !== lastVideoTime) {
         lastVideoTime = video.currentTime;
 
-        const result = faceLandmarker.detectForVideo(video, performance.now());
-        processExpressionResult(result);
+        const timestamp = performance.now();
+
+        const faceResult = faceLandmarker.detectForVideo(video, timestamp);
+        processExpressionResult(faceResult);
+
+        const handResult = handLandmarker.detectForVideo(video, timestamp);
+        processHandResult(handResult);
     }
 
-    detectionAnimationId = requestAnimationFrame(detectExpressionLoop);
+    detectionAnimationId = requestAnimationFrame(detectLoop);
 }
 
 function processExpressionResult(result) {
@@ -435,7 +495,10 @@ function processExpressionResult(result) {
         result.faceBlendshapes.length === 0 ||
         !result.faceBlendshapes[0].categories
     ) {
-        updateExpressionUI(0, 0, 0, "Tidak terdeteksi");
+        if (!isPhotoboothRunning && !autoCaptureStarted) {
+            updateExpressionUI(0, 0, 0, "Tidak terdeteksi");
+        }
+
         return;
     }
 
@@ -458,12 +521,105 @@ function processExpressionResult(result) {
     funny = clamp(funny, 0, 100);
     serious = clamp(serious, 0, 100);
 
-    if (isPhotoboothRunning) {
+    if (isPhotoboothRunning || autoCaptureStarted) {
         updateExpressionBarsOnly(smile, serious, funny);
         return;
     }
 
     updateExpressionUI(smile, serious, funny);
+}
+
+function processHandResult(result) {
+    if (isPhotoboothRunning || autoCaptureStarted) return;
+
+    if (!result.landmarks || result.landmarks.length === 0) {
+        return;
+    }
+
+    const landmarks = result.landmarks[0];
+    const handedness = result.handedness?.[0]?.[0]?.categoryName || "Right";
+    const fingers = countOpenFingers(landmarks, handedness);
+
+    if (fingers === 5) {
+        const now = Date.now();
+
+        if (now - lastFiveFingerDetectedAt < 1200) {
+            startAutoCaptureByHand();
+        } else {
+            lastFiveFingerDetectedAt = now;
+            expressionBadge.textContent = "Gesture: 5 Jari";
+            suggestionText.textContent =
+                "5 jari terdeteksi. Tahan sebentar untuk mulai countdown otomatis.";
+        }
+    } else {
+        lastFiveFingerDetectedAt = 0;
+    }
+}
+
+function countOpenFingers(landmarks, handedness) {
+    let count = 0;
+
+    const thumbTip = landmarks[4];
+    const thumbIp = landmarks[3];
+
+    const indexTip = landmarks[8];
+    const indexPip = landmarks[6];
+
+    const middleTip = landmarks[12];
+    const middlePip = landmarks[10];
+
+    const ringTip = landmarks[16];
+    const ringPip = landmarks[14];
+
+    const pinkyTip = landmarks[20];
+    const pinkyPip = landmarks[18];
+
+    if (handedness === "Right") {
+        if (thumbTip.x < thumbIp.x) count++;
+    } else {
+        if (thumbTip.x > thumbIp.x) count++;
+    }
+
+    if (indexTip.y < indexPip.y) count++;
+    if (middleTip.y < middlePip.y) count++;
+    if (ringTip.y < ringPip.y) count++;
+    if (pinkyTip.y < pinkyPip.y) count++;
+
+    return count;
+}
+
+function startAutoCaptureByHand() {
+    autoCaptureStarted = true;
+
+    let count = 5;
+
+    countdown.style.display = "flex";
+    countdown.textContent = count;
+
+    expressionBadge.textContent = "Gesture: 5 Jari";
+    suggestionText.textContent = "5 jari terdeteksi! Foto otomatis dalam 5 detik.";
+
+    const timer = setInterval(() => {
+        count--;
+        countdown.textContent = count;
+
+        if (count === 0) {
+            clearInterval(timer);
+            countdown.style.display = "none";
+
+            captureImage();
+
+            setTimeout(() => {
+                autoCaptureStarted = false;
+                lastFiveFingerDetectedAt = 0;
+
+                if (stream) {
+                    suggestionText.textContent =
+                        "Tunjukkan 5 jari lagi untuk auto capture berikutnya.";
+                }
+            }, 2500);
+        }
+    }, 1000);
 }
 
 function getBlendshapeScore(categories, name) {
@@ -501,7 +657,8 @@ function updateExpressionUI(smile, serious, funny, forcedExpression = null) {
         suggestion = "Ekspresi lucu terdeteksi. Cocok untuk foto fun dan photobooth.";
     } else {
         expression = "Datar";
-        suggestion = "Ekspresi datar terdeteksi. Coba senyum sedikit kalau ingin hasil lebih ceria.";
+        suggestion =
+            "Ekspresi datar terdeteksi. Coba senyum sedikit kalau ingin hasil lebih ceria.";
     }
 
     expressionBadge.textContent = "Ekspresi: " + expression;
