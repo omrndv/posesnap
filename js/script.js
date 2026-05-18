@@ -156,7 +156,7 @@ function stopCamera() {
 
 function takePhoto() {
     if (!stream) {
-        alert("Aktifkan kamera dulu bud.");
+        alert("Aktifkan kamera dulu yaa kak.");
         return;
     }
 
@@ -223,7 +223,7 @@ function captureImageToData() {
 
 function startPhotoboothSession() {
     if (!stream) {
-        alert("Aktifkan kamera dulu bud.");
+        alert("Aktifkan kamera dulu yaa kak.");
         return;
     }
 
@@ -361,7 +361,7 @@ function getTemplateColors() {
 
 function downloadPhotoStrip() {
     if (photoStripImages.length < 4) {
-        alert("Selesaikan sesi 4 foto dulu bud.");
+        alert("Selesaikan sesi 4 foto dulu yaa kak.");
         return;
     }
 
