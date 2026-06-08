@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PoseSnap Photobooth</title>
+
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>PoseSnap</h1>
+        <p>Photobooth pendeteksi ekspresi wajah</p>
+      </div>
+
+      <div class="photobooth">
+        <div class="camera-card">
+          <div class="card-heading">
+            <div>
+              <h2>Live Camera</h2>
+              <p>Arahkan wajah ke kamera dan tampilkan ekspresi terbaikmu.</p>
+            </div>
+
+            <span class="live-pill">● Live</span>
+          </div>
+
+          <div class="camera-box">
+            <video id="video" autoplay playsinline></video>
+
+            <div class="expression-badge" id="expressionBadge">Ekspresi: -</div>
+
+            <div class="countdown" id="countdown">3</div>
+          </div>
+
+          <div class="expression-list live-expression">
+            <div class="expression-item">
+              <strong>
+                Senyum
+                <span id="smileValue">0%</span>
+              </strong>
+
+              <div class="bar">
+                <div class="bar-fill" id="smileBar"></div>
+              </div>
+            </div>
+
+            <div class="expression-item">
+              <strong>
+                Serius
+                <span id="seriousValue">0%</span>
+              </strong>
+
+              <div class="bar">
+                <div class="bar-fill" id="seriousBar"></div>
+              </div>
+            </div>
+
+            <div class="expression-item">
+              <strong>
+                Ekspresi Lucu
+                <span id="funnyValue">0%</span>
+              </strong>
+
+              <div class="bar">
+                <div class="bar-fill" id="funnyBar"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="controls">
+            <button class="btn-primary" onclick="startCamera()">
+              Mulai Kamera
+            </button>
+
+            <button class="btn-secondary" onclick="takePhoto()">
+              Jepret Sekali
+            </button>
+
+            <button class="btn-secondary" onclick="startPhotoboothSession()">
+              Sesi 4 Foto
+            </button>
+
+            <button class="btn-danger" onclick="stopCamera()">
+              Matikan Kamera
+            </button>
+          </div>
+
+          <div class="status-box">
+            <h3>Status PoseSnap</h3>
+            <p id="suggestionText">
+              Aktifkan kamera, lalu sistem akan menampilkan ekspresi wajah
+              pengguna.
+            </p>
+          </div>
+
+          <div class="template-box">
+            <div class="template-heading">
+              <h3>Pilih Template Strip</h3>
+              <p>Pilih kerangka photobooth yang kamu mau.</p>
+            </div>
+
+            <div class="template-options">
+              <button
+                type="button"
+                class="template-option active"
+                data-template="cute"
+                onclick="changeStripTemplate('cute')"
+              >
+                <span class="template-preview template-cute">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </span>
+
+                <div>
+                  <strong>Cute Pastel</strong>
+                  <small>Kawaii hearts & sparkle</small>
+                </div>
+              </button>
+
+              <button
+                type="button"
+                class="template-option"
+                data-template="starlove"
+                onclick="changeStripTemplate('starlove')"
+              >
+                <span class="template-preview template-starlove">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </span>
+
+                <div>
+                  <strong>Starry Love</strong>
+                  <small>Love + glow + dreamy</small>
+                </div>
+              </button>
+
+              <button
+                type="button"
+                class="template-option"
+                data-template="sakura"
+                onclick="changeStripTemplate('sakura')"
+              >
+                <span class="template-preview template-sakura">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </span>
+
+                <div>
+                  <strong>Sakura Bloom</strong>
+                  <small>Flower & leaf aesthetic</small>
+                </div>
+              </button>
+
+              <button
+                type="button"
+                class="template-option"
+                data-template="moonlight"
+                onclick="changeStripTemplate('moonlight')"
+              >
+                <span class="template-preview template-moonlight">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </span>
+
+                <div>
+                  <strong>Moonlight Pop</strong>
+                  <small>Moon, stars & purple glow</small>
+                </div>
+              </button>
+
+              <button
+                type="button"
+                class="template-option"
+                data-template="y2k"
+                onclick="changeStripTemplate('y2k')"
+              >
+                <span class="template-preview template-y2k">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </span>
+
+                <div>
+                  <strong>Y2K Pop</strong>
+                  <small>Retro shiny & fun</small>
+                </div>
+              </button>
+
+              <button
+                type="button"
+                class="template-option"
+                data-template="noir"
+                onclick="changeStripTemplate('noir')"
+              >
+                <span class="template-preview template-noir">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </span>
+
+                <div>
+                  <strong>Noir Hearts</strong>
+                  <small>Dark & moody with hearts</small>
+                </div>
+              </button>
+
+              <button
+                type="button"
+                class="template-option"
+                data-template="bloom"
+                onclick="changeStripTemplate('bloom')"
+              >
+                <span class="template-preview template-bloom">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </span>
+
+                <div>
+                  <strong>Bloom Garden</strong>
+                  <small>Floral soft & fresh</small>
+                </div>
+              </button>
+
+              <button
+                type="button"
+                class="template-option"
+                data-template="chrome"
+                onclick="changeStripTemplate('chrome')"
+              >
+                <span class="template-preview template-chrome">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </span>
+
+                <div>
+                  <strong>Chrome Love</strong>
+                  <small>Y2K silver + pink accents</small>
+                </div>
+              </button>
+
+              <button
+                type="button"
+                class="template-option"
+                data-template="midnight"
+                onclick="changeStripTemplate('midnight')"
+              >
+                <span class="template-preview template-midnight">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </span>
+
+                <div>
+                  <strong>Midnight Kawaii</strong>
+                  <small>Dark cute + sparkle</small>
+                </div>
+              </button>
+
+              <button
+                type="button"
+                class="template-option"
+                data-template="daisy"
+                onclick="changeStripTemplate('daisy')"
+              >
+                <span class="template-preview template-daisy">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </span>
+
+                <div>
+                  <strong>Retro Daisy</strong>
+                  <small>Retro flower & playful</small>
+                </div>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="result-card">
+          <div class="card-heading">
+            <div>
+              <h2>Photo Result</h2>
+              <p>Hasil jepretan dan strip photobooth akan muncul di sini.</p>
+            </div>
+          </div>
+
+          <div class="preview-box" id="previewBox">
+            Hasil foto terakhir akan muncul di sini
+          </div>
+
+          <div class="strip-area">
+            <div class="strip-info">
+              <h3>Photobooth Strip</h3>
+              <p>
+                Mulai sesi 4 foto untuk mengisi template ini secara otomatis.
+              </p>
+            </div>
+
+            <div class="photo-strip cute" id="photoStrip">
+              <div class="strip-title">POSESNAP</div>
+
+              <div class="strip-slot">Foto 1</div>
+              <div class="strip-slot">Foto 2</div>
+              <div class="strip-slot">Foto 3</div>
+              <div class="strip-slot">Foto 4</div>
+
+              <div class="strip-footer">sweet photobooth ✦</div>
+            </div>
+          </div>
+
+          <button
+            class="btn-primary download-btn"
+            onclick="downloadPhotoStrip()"
+          >
+            Download Strip
+          </button>
+        </div>
+      </div>
+
+      <div class="result-card history-section">
+        <div class="card-heading history-heading">
+          <div>
+            <h2>Riwayat Sesi Foto</h2>
+            <p>
+              Klik pada salah satu tanggal untuk melihat dan mengedit kembali
+              sesi tersebut.
+            </p>
+          </div>
+
+          <button
+            class="btn-danger-sm"
+            onclick="clearAllHistory()"
+            id="clearHistoryBtn"
+            style="display: none"
+          >
+            Hapus Semua
+          </button>
+        </div>
+
+        <div id="historyList" class="history-list">
+          <p class="no-history-text">Belum ada riwayat sesi foto.</p>
+        </div>
+      </div>
+
+      <canvas id="canvas"></canvas>
+    </div>
+
+    <script type="module" src="./js/script.js"></script>
+  </body>
+</html>
