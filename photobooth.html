@@ -6,13 +6,21 @@
     <title>PoseSnap Photobooth</title>
 
     <link rel="stylesheet" href="./css/style.css" />
+    <script src="https://unpkg.com/lucide@latest"></script>
   </head>
 
   <body>
     <div class="container">
       <div class="header">
+        <a href="./index.html" class="back-link">
+          <i data-lucide="arrow-left"></i>
+          <span>Kembali ke Beranda</span>
+        </a>
         <h1>PoseSnap</h1>
-        <p>Photobooth pendeteksi ekspresi wajah</p>
+        <p>
+          <i data-lucide="camera"></i>
+          Photobooth pendeteksi ekspresi wajah
+        </p>
       </div>
 
       <div class="photobooth">
@@ -37,7 +45,10 @@
           <div class="expression-list live-expression">
             <div class="expression-item">
               <strong>
-                Senyum
+                <span class="expr-title">
+                  <i data-lucide="smile"></i>
+                  Senyum
+                </span>
                 <span id="smileValue">0%</span>
               </strong>
 
@@ -48,7 +59,10 @@
 
             <div class="expression-item">
               <strong>
-                Serius
+                <span class="expr-title">
+                  <i data-lucide="meh"></i>
+                  Serius
+                </span>
                 <span id="seriousValue">0%</span>
               </strong>
 
@@ -59,7 +73,10 @@
 
             <div class="expression-item">
               <strong>
-                Ekspresi Lucu
+                <span class="expr-title">
+                  <i data-lucide="laugh"></i>
+                  Ekspresi Lucu
+                </span>
                 <span id="funnyValue">0%</span>
               </strong>
 
@@ -70,25 +87,32 @@
           </div>
 
           <div class="controls">
-            <button class="btn-primary" onclick="startCamera()">
+            <button class="btn-primary" id="startCamBtn" onclick="startCamera()">
+              <i data-lucide="video"></i>
               Mulai Kamera
             </button>
 
-            <button class="btn-secondary" onclick="takePhoto()">
+            <button class="btn-secondary" id="takePhotoBtn" onclick="takePhoto()">
+              <i data-lucide="camera"></i>
               Jepret Sekali
             </button>
 
-            <button class="btn-secondary" onclick="startPhotoboothSession()">
+            <button class="btn-secondary" id="startSessionBtn" onclick="startPhotoboothSession()">
+              <i data-lucide="layers"></i>
               Sesi 4 Foto
             </button>
 
-            <button class="btn-danger" onclick="stopCamera()">
+            <button class="btn-danger" id="stopCamBtn" onclick="stopCamera()">
+              <i data-lucide="power"></i>
               Matikan Kamera
             </button>
           </div>
 
           <div class="status-box">
-            <h3>Status PoseSnap</h3>
+            <h3>
+              <i data-lucide="info"></i>
+              Status PoseSnap
+            </h3>
             <p id="suggestionText">
               Aktifkan kamera, lalu sistem akan menampilkan ekspresi wajah
               pengguna.
@@ -97,7 +121,10 @@
 
           <div class="template-box">
             <div class="template-heading">
-              <h3>Pilih Template Strip</h3>
+              <h3>
+                <i data-lucide="palette"></i>
+                Pilih Template Strip
+              </h3>
               <p>Pilih kerangka photobooth yang kamu mau.</p>
             </div>
 
@@ -294,7 +321,10 @@
           </div>
 
           <div class="preview-box" id="previewBox">
-            Hasil foto terakhir akan muncul di sini
+            <div class="preview-placeholder">
+              <i data-lucide="image"></i>
+              <span>Hasil foto terakhir akan muncul di sini</span>
+            </div>
           </div>
 
           <div class="strip-area">
@@ -319,8 +349,10 @@
 
           <button
             class="btn-primary download-btn"
+            id="downloadStripBtn"
             onclick="downloadPhotoStrip()"
           >
+            <i data-lucide="download"></i>
             Download Strip
           </button>
         </div>
@@ -337,12 +369,13 @@
           </div>
 
           <button
-            class="btn-danger-sm"
+            class="btn-danger-sm clear-history-btn"
             onclick="clearAllHistory()"
             id="clearHistoryBtn"
             style="display: none"
           >
-            Hapus Semua
+            <i data-lucide="trash-2"></i>
+            <span>Hapus Semua</span>
           </button>
         </div>
 
@@ -355,5 +388,8 @@
     </div>
 
     <script type="module" src="./js/script.js"></script>
+    <script>
+      lucide.createIcons();
+    </script>
   </body>
 </html>

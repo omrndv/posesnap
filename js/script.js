@@ -67,10 +67,10 @@ const TEMPLATE_CONFIGS = {
         slotBg: "#ffffff",
         slotBorder: "#ffabd1",
         stickers: [
-            { text: "✨", x: 85, y: 70, size: 26, color: "#ff8ec6", rotate: -0.2 },
-            { text: "💕", x: 810, y: 78, size: 24, color: "#ff70b8", rotate: 0.1 },
-            { text: "♡", x: 95, y: 1460, size: 22, color: "#ff70b8", rotate: -0.1 },
-            { text: "✦", x: 805, y: 1460, size: 22, color: "#ff8ec6", rotate: 0.1 }
+            { shape: "sparkle", x: 85, y: 70, size: 24, color: "#ff8ec6", rotate: -0.2 },
+            { shape: "heart", x: 810, y: 78, size: 24, color: "#ff70b8", rotate: 0.1 },
+            { shape: "heart", x: 95, y: 1460, size: 22, color: "#ff70b8", rotate: -0.1 },
+            { shape: "sparkle", x: 805, y: 1460, size: 22, color: "#ff8ec6", rotate: 0.1 }
         ]
     },
 
@@ -85,17 +85,17 @@ const TEMPLATE_CONFIGS = {
         slotBg: "#ffffff",
         slotBorder: "#f78fc3",
         stickers: [
-            { text: "✦", x: 80, y: 72, size: 24, color: "#ff7ebd", rotate: -0.1 },
-            { text: "💗", x: 810, y: 74, size: 24, color: "#ff5eb0", rotate: 0.15 },
-            { text: "✨", x: 130, y: 1410, size: 22, color: "#ff8ac5", rotate: 0.2 },
-            { text: "♡", x: 770, y: 1410, size: 24, color: "#ff5eb0", rotate: -0.1 }
+            { shape: "star", x: 80, y: 72, size: 24, color: "#ff7ebd", rotate: -0.1 },
+            { shape: "heart", x: 810, y: 74, size: 24, color: "#ff5eb0", rotate: 0.15 },
+            { shape: "sparkle", x: 130, y: 1410, size: 22, color: "#ff8ac5", rotate: 0.2 },
+            { shape: "heart", x: 770, y: 1410, size: 24, color: "#ff5eb0", rotate: -0.1 }
         ]
     },
 
     sakura: {
         label: "Sakura Bloom",
         titleText: "POSESNAP",
-        footerText: "blooming memories 🌸",
+        footerText: "blooming memories ✿",
         start: "#fffefe",
         end: "#fff6f8",
         title: "#df6f97",
@@ -103,17 +103,17 @@ const TEMPLATE_CONFIGS = {
         slotBg: "#ffffff",
         slotBorder: "#e9a9bd",
         stickers: [
-            { text: "🌸", x: 84, y: 72, size: 24, color: "#e889a8", rotate: -0.2 },
-            { text: "🍃", x: 805, y: 76, size: 22, color: "#67b685", rotate: 0.1 },
-            { text: "✿", x: 120, y: 1415, size: 22, color: "#de7f9f", rotate: 0.1 },
-            { text: "🌸", x: 780, y: 1415, size: 22, color: "#e889a8", rotate: -0.1 }
+            { shape: "flower", x: 84, y: 72, size: 24, color: "#e889a8", rotate: -0.2 },
+            { shape: "leaf", x: 805, y: 76, size: 22, color: "#67b685", rotate: 0.1 },
+            { shape: "flower", x: 120, y: 1415, size: 22, color: "#de7f9f", rotate: 0.1 },
+            { shape: "flower", x: 780, y: 1415, size: 22, color: "#e889a8", rotate: -0.1 }
         ]
     },
 
     moonlight: {
         label: "Moonlight Pop",
         titleText: "POSESNAP",
-        footerText: "moon glow vibes ☾",
+        footerText: "moon glow vibes ✧",
         start: "#fbfaff",
         end: "#f3efff",
         title: "#7e5bef",
@@ -121,10 +121,10 @@ const TEMPLATE_CONFIGS = {
         slotBg: "#ffffff",
         slotBorder: "#b39afc",
         stickers: [
-            { text: "☾", x: 85, y: 70, size: 24, color: "#8c6df5", rotate: -0.2 },
-            { text: "✦", x: 810, y: 75, size: 22, color: "#9a82f9", rotate: 0.2 },
-            { text: "🌙", x: 110, y: 1410, size: 22, color: "#8c6df5", rotate: 0.1 },
-            { text: "☆", x: 790, y: 1410, size: 22, color: "#9a82f9", rotate: -0.1 }
+            { shape: "moon", x: 85, y: 70, size: 24, color: "#8c6df5", rotate: -0.2 },
+            { shape: "sparkle", x: 810, y: 75, size: 22, color: "#9a82f9", rotate: 0.2 },
+            { shape: "moon", x: 110, y: 1410, size: 22, color: "#8c6df5", rotate: 0.1 },
+            { shape: "star", x: 790, y: 1410, size: 22, color: "#9a82f9", rotate: -0.1 }
         ]
     },
 
@@ -139,10 +139,10 @@ const TEMPLATE_CONFIGS = {
         slotBg: "#ffffff",
         slotBorder: "#81d8ff",
         stickers: [
-            { text: "✦", x: 86, y: 70, size: 22, color: "#32b0e8", rotate: -0.2 },
-            { text: "★", x: 810, y: 75, size: 24, color: "#36b6f0", rotate: 0.1 },
-            { text: "♡", x: 120, y: 1410, size: 22, color: "#ff78b5", rotate: 0.1 },
-            { text: "✨", x: 780, y: 1410, size: 22, color: "#36b6f0", rotate: -0.1 }
+            { shape: "sparkle", x: 86, y: 70, size: 22, color: "#32b0e8", rotate: -0.2 },
+            { shape: "star", x: 810, y: 75, size: 24, color: "#36b6f0", rotate: 0.1 },
+            { shape: "heart", x: 120, y: 1410, size: 22, color: "#ff78b5", rotate: 0.1 },
+            { shape: "sparkle", x: 780, y: 1410, size: 22, color: "#36b6f0", rotate: -0.1 }
         ]
     },
 
@@ -157,17 +157,17 @@ const TEMPLATE_CONFIGS = {
         slotBg: "#1c1922",
         slotBorder: "#ff8ac5",
         stickers: [
-            { text: "✦", x: 84, y: 72, size: 22, color: "#ff8ac5", rotate: -0.2 },
-            { text: "🖤", x: 810, y: 76, size: 22, color: "#ffffff", rotate: 0.1 },
-            { text: "♡", x: 120, y: 1410, size: 22, color: "#ff8ac5", rotate: 0.1 },
-            { text: "🌙", x: 785, y: 1410, size: 22, color: "#e5d3e3", rotate: -0.1 }
+            { shape: "sparkle", x: 84, y: 72, size: 22, color: "#ff8ac5", rotate: -0.2 },
+            { shape: "heart", x: 810, y: 76, size: 22, color: "#ffffff", rotate: 0.1 },
+            { shape: "heart", x: 120, y: 1410, size: 22, color: "#ff8ac5", rotate: 0.1 },
+            { shape: "moon", x: 785, y: 1410, size: 22, color: "#e5d3e3", rotate: -0.1 }
         ]
     },
 
     bloom: {
         label: "Bloom Garden",
         titleText: "POSESNAP",
-        footerText: "garden memory strip 🌼",
+        footerText: "garden memory strip ✿",
         start: "#ffffff",
         end: "#f1fff7",
         title: "#24a06d",
@@ -175,10 +175,10 @@ const TEMPLATE_CONFIGS = {
         slotBg: "#ffffff",
         slotBorder: "#77d5ab",
         stickers: [
-            { text: "🌼", x: 85, y: 72, size: 24, color: "#f0bf4e", rotate: -0.1 },
-            { text: "🍃", x: 810, y: 75, size: 22, color: "#4dae78", rotate: 0.2 },
-            { text: "🌷", x: 120, y: 1410, size: 22, color: "#e78fb0", rotate: 0.1 },
-            { text: "❀", x: 785, y: 1410, size: 22, color: "#4dae78", rotate: -0.1 }
+            { shape: "flower", x: 85, y: 72, size: 24, color: "#f0bf4e", rotate: -0.1 },
+            { shape: "leaf", x: 810, y: 75, size: 22, color: "#4dae78", rotate: 0.2 },
+            { shape: "flower", x: 120, y: 1410, size: 22, color: "#e78fb0", rotate: 0.1 },
+            { shape: "leaf", x: 785, y: 1410, size: 22, color: "#4dae78", rotate: -0.1 }
         ]
     },
 
@@ -193,10 +193,10 @@ const TEMPLATE_CONFIGS = {
         slotBg: "#ffffff",
         slotBorder: "#b5b6c7",
         stickers: [
-            { text: "✦", x: 85, y: 70, size: 22, color: "#8e8ea8", rotate: -0.1 },
-            { text: "♡", x: 810, y: 75, size: 22, color: "#df8bb8", rotate: 0.1 },
-            { text: "☆", x: 120, y: 1410, size: 22, color: "#8e8ea8", rotate: 0.1 },
-            { text: "✧", x: 785, y: 1410, size: 22, color: "#df8bb8", rotate: -0.1 }
+            { shape: "sparkle", x: 85, y: 70, size: 22, color: "#8e8ea8", rotate: -0.1 },
+            { shape: "heart", x: 810, y: 75, size: 22, color: "#df8bb8", rotate: 0.1 },
+            { shape: "star", x: 120, y: 1410, size: 22, color: "#8e8ea8", rotate: 0.1 },
+            { shape: "sparkle", x: 785, y: 1410, size: 22, color: "#df8bb8", rotate: -0.1 }
         ]
     },
 
@@ -211,10 +211,10 @@ const TEMPLATE_CONFIGS = {
         slotBg: "#1c2333",
         slotBorder: "#8fd9ff",
         stickers: [
-            { text: "🌙", x: 85, y: 72, size: 22, color: "#8fd9ff", rotate: -0.1 },
-            { text: "⭐", x: 810, y: 75, size: 22, color: "#e4eaff", rotate: 0.1 },
-            { text: "♡", x: 120, y: 1410, size: 22, color: "#b4c6ff", rotate: 0.1 },
-            { text: "✨", x: 785, y: 1410, size: 22, color: "#8fd9ff", rotate: -0.1 }
+            { shape: "moon", x: 85, y: 72, size: 22, color: "#8fd9ff", rotate: -0.1 },
+            { shape: "star", x: 810, y: 75, size: 22, color: "#e4eaff", rotate: 0.1 },
+            { shape: "heart", x: 120, y: 1410, size: 22, color: "#b4c6ff", rotate: 0.1 },
+            { shape: "sparkle", x: 785, y: 1410, size: 22, color: "#8fd9ff", rotate: -0.1 }
         ]
     },
 
@@ -229,18 +229,22 @@ const TEMPLATE_CONFIGS = {
         slotBg: "#ffffff",
         slotBorder: "#efc55a",
         stickers: [
-            { text: "🌼", x: 85, y: 72, size: 24, color: "#e3b542", rotate: -0.1 },
-            { text: "✦", x: 810, y: 75, size: 22, color: "#d29216", rotate: 0.1 },
-            { text: "❀", x: 120, y: 1410, size: 22, color: "#d29216", rotate: 0.1 },
-            { text: "🌼", x: 785, y: 1410, size: 22, color: "#e3b542", rotate: -0.1 }
+            { shape: "flower", x: 85, y: 72, size: 24, color: "#e3b542", rotate: -0.1 },
+            { shape: "sparkle", x: 810, y: 75, size: 22, color: "#d29216", rotate: 0.1 },
+            { shape: "sun", x: 120, y: 1410, size: 22, color: "#d29216", rotate: 0.1 },
+            { shape: "flower", x: 785, y: 1410, size: 22, color: "#e3b542", rotate: -0.1 }
         ]
     }
 };
 
 // ===== INIT =====
-document.addEventListener("DOMContentLoaded", () => {
-    loadAndRenderHistoryList();
+document.addEventListener("DOMContentLoaded", async () => {
+    await migrateLocalStorageToDB();
+    await loadAndRenderHistoryList();
     applyTemplateMeta();
+    if (window.lucide) {
+        window.lucide.createIcons();
+    }
 });
 
 // ===== CAMERA =====
@@ -304,33 +308,67 @@ async function initMediaPipe() {
         "https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@latest/wasm"
     );
 
+    let delegate = "GPU";
+
     if (!faceLandmarker) {
-        faceLandmarker = await FaceLandmarker.createFromOptions(vision, {
-            baseOptions: {
-                modelAssetPath: "https://storage.googleapis.com/mediapipe-models/face_landmarker/face_landmarker/float16/latest/face_landmarker.task",
-                delegate: "CPU"
-            },
-            runningMode: "VIDEO",
-            numFaces: 1,
-            outputFaceBlendshapes: true,
-            minFaceDetectionConfidence: 0.55,
-            minFacePresenceConfidence: 0.55,
-            minTrackingConfidence: 0.55
-        });
+        try {
+            faceLandmarker = await FaceLandmarker.createFromOptions(vision, {
+                baseOptions: {
+                    modelAssetPath: "https://storage.googleapis.com/mediapipe-models/face_landmarker/face_landmarker/float16/latest/face_landmarker.task",
+                    delegate: "GPU"
+                },
+                runningMode: "VIDEO",
+                numFaces: 1,
+                outputFaceBlendshapes: true,
+                minFaceDetectionConfidence: 0.55,
+                minFacePresenceConfidence: 0.55,
+                minTrackingConfidence: 0.55
+            });
+        } catch (gpuErr) {
+            console.warn("GPU delegate failed for FaceLandmarker, falling back to CPU:", gpuErr);
+            delegate = "CPU";
+            faceLandmarker = await FaceLandmarker.createFromOptions(vision, {
+                baseOptions: {
+                    modelAssetPath: "https://storage.googleapis.com/mediapipe-models/face_landmarker/face_landmarker/float16/latest/face_landmarker.task",
+                    delegate: "CPU"
+                },
+                runningMode: "VIDEO",
+                numFaces: 1,
+                outputFaceBlendshapes: true,
+                minFaceDetectionConfidence: 0.55,
+                minFacePresenceConfidence: 0.55,
+                minTrackingConfidence: 0.55
+            });
+        }
     }
 
     if (!handLandmarker) {
-        handLandmarker = await HandLandmarker.createFromOptions(vision, {
-            baseOptions: {
-                modelAssetPath: "https://storage.googleapis.com/mediapipe-models/hand_landmarker/hand_landmarker/float16/latest/hand_landmarker.task",
-                delegate: "CPU"
-            },
-            runningMode: "VIDEO",
-            numHands: 1,
-            minHandDetectionConfidence: 0.55,
-            minHandPresenceConfidence: 0.55,
-            minTrackingConfidence: 0.55
-        });
+        try {
+            handLandmarker = await HandLandmarker.createFromOptions(vision, {
+                baseOptions: {
+                    modelAssetPath: "https://storage.googleapis.com/mediapipe-models/hand_landmarker/hand_landmarker/float16/latest/hand_landmarker.task",
+                    delegate: delegate
+                },
+                runningMode: "VIDEO",
+                numHands: 1,
+                minHandDetectionConfidence: 0.55,
+                minHandPresenceConfidence: 0.55,
+                minTrackingConfidence: 0.55
+            });
+        } catch (gpuErr) {
+            console.warn("GPU delegate failed for HandLandmarker, falling back to CPU:", gpuErr);
+            handLandmarker = await HandLandmarker.createFromOptions(vision, {
+                baseOptions: {
+                    modelAssetPath: "https://storage.googleapis.com/mediapipe-models/hand_landmarker/hand_landmarker/float16/latest/hand_landmarker.task",
+                    delegate: "CPU"
+                },
+                runningMode: "VIDEO",
+                numHands: 1,
+                minHandDetectionConfidence: 0.55,
+                minHandPresenceConfidence: 0.55,
+                minTrackingConfidence: 0.55
+            });
+        }
     }
 }
 
@@ -346,15 +384,7 @@ function stopCamera() {
         detectionAnimationId = null;
     }
 
-    if (faceLandmarker) {
-        faceLandmarker.close();
-        faceLandmarker = null;
-    }
-
-    if (handLandmarker) {
-        handLandmarker.close();
-        handLandmarker = null;
-    }
+    // Cache faceLandmarker and handLandmarker in memory for fast restart
 
     lastVideoTime = -1;
 
@@ -518,7 +548,9 @@ function runPhotoboothShot(currentShot, totalShot, targetIndex = null) {
             isRetakeMode = false;
 
             if (currentLoadedHistoryId) {
-                updateHistoryEntry(currentLoadedHistoryId);
+                updateHistoryEntry(currentLoadedHistoryId).then(() => {
+                    loadAndRenderHistoryList();
+                });
                 suggestionText.textContent = "Foto diganti! Riwayat berhasil diperbarui.";
             } else {
                 suggestionText.textContent = "Foto berhasil diganti! Strip foto diperbarui.";
@@ -536,8 +568,9 @@ function runPhotoboothShot(currentShot, totalShot, targetIndex = null) {
         } else {
             isPhotoboothRunning = false;
 
-            saveSessionToHistory();
-            loadAndRenderHistoryList();
+            saveSessionToHistory().then(() => {
+                loadAndRenderHistoryList();
+            });
 
             suggestionText.textContent = "Sesi selesai! Strip foto sudah disimpan ke riwayat. Hover foto di strip untuk retake.";
         }
@@ -551,13 +584,17 @@ function updatePhotoStrip() {
             slot.innerHTML = `
                 <img src="${photoStripImages[index]}" alt="Foto ${index + 1}">
                 <button class="retake-btn" onclick="requestRetake(${index})">
-                    <span>↻</span> Retake
+                    <i data-lucide="rotate-cw"></i> Retake
                 </button>
             `;
         } else {
             slot.textContent = `Foto ${index + 1}`;
         }
     });
+
+    if (window.lucide) {
+        window.lucide.createIcons();
+    }
 }
 
 function resetPhotoStrip() {
@@ -607,83 +644,79 @@ function changeStripTemplate(templateName) {
     applyTemplateMeta();
 
     if (currentLoadedHistoryId) {
-        updateHistoryEntry(currentLoadedHistoryId);
-        loadAndRenderHistoryList();
+        updateHistoryEntry(currentLoadedHistoryId).then(() => {
+            loadAndRenderHistoryList();
+        });
     }
 }
 
 // ===== DOWNLOAD =====
-function downloadPhotoStrip() {
+async function downloadPhotoStrip() {
     if (photoStripImages.length < 4 || photoStripImages.some(p => !p)) {
         alert("Selesaikan sesi 4 foto dulu yaa kak (pastikan semua slot terisi).");
         return;
     }
 
-    const stripCanvas = document.createElement("canvas");
-    const ctx = stripCanvas.getContext("2d");
+    try {
+        if (document.fonts) {
+            await document.fonts.ready;
+        }
 
-    const stripWidth = 900;
-    const padding = 50;
-    const gap = 30;
-    const photoWidth = stripWidth - padding * 2;
-    const photoHeight = Math.round((photoWidth * 3) / 4);
-    const titleHeight = 110;
-    const footerHeight = 95;
+        const stripCanvas = document.createElement("canvas");
+        const ctx = stripCanvas.getContext("2d");
 
-    stripCanvas.width = stripWidth;
-    stripCanvas.height = padding + titleHeight + photoHeight * 4 + gap * 3 + footerHeight;
+        const stripWidth = 900;
+        const padding = 50;
+        const gap = 30;
+        const photoWidth = stripWidth - padding * 2;
+        const photoHeight = Math.round((photoWidth * 3) / 4);
+        const titleHeight = 110;
+        const footerHeight = 95;
 
-    const config = getTemplateColors();
+        stripCanvas.width = stripWidth;
+        stripCanvas.height = padding + titleHeight + photoHeight * 4 + gap * 3 + footerHeight;
 
-    const gradient = ctx.createLinearGradient(0, 0, 0, stripCanvas.height);
-    gradient.addColorStop(0, config.start);
-    gradient.addColorStop(1, config.end);
+        const config = getTemplateColors();
 
-    ctx.fillStyle = gradient;
-    ctx.fillRect(0, 0, stripCanvas.width, stripCanvas.height);
+        const gradient = ctx.createLinearGradient(0, 0, 0, stripCanvas.height);
+        gradient.addColorStop(0, config.start);
+        gradient.addColorStop(1, config.end);
 
-    ctx.save();
-    roundedRect(ctx, 18, 18, stripCanvas.width - 36, stripCanvas.height - 36, 34);
-    ctx.strokeStyle = "rgba(255, 255, 255, 0.85)";
-    ctx.lineWidth = 2;
-    ctx.stroke();
-    ctx.restore();
+        ctx.fillStyle = gradient;
+        ctx.fillRect(0, 0, stripCanvas.width, stripCanvas.height);
 
-    drawTemplateDecorations(ctx, config);
+        ctx.save();
+        roundedRect(ctx, 18, 18, stripCanvas.width - 36, stripCanvas.height - 36, 34);
+        ctx.strokeStyle = "rgba(255, 255, 255, 0.85)";
+        ctx.lineWidth = 2;
+        ctx.stroke();
+        ctx.restore();
 
-    ctx.fillStyle = config.title;
-    ctx.font = "800 46px Arial";
-    ctx.textAlign = "center";
-    ctx.fillText(config.titleText || "POSESNAP", stripWidth / 2, 78);
+        drawTemplateDecorations(ctx, config);
 
-    let loaded = 0;
-    const images = [];
+        ctx.fillStyle = config.title;
+        ctx.font = "800 46px 'Plus Jakarta Sans', Arial, sans-serif";
+        ctx.textAlign = "center";
+        ctx.fillText(config.titleText || "POSESNAP", stripWidth / 2, 78);
 
-    photoStripImages.forEach((src, index) => {
-        const img = new Image();
+        const imgPromises = photoStripImages.map((src, index) => {
+            return new Promise((resolve, reject) => {
+                const img = new Image();
+                img.onload = () => resolve(img);
+                img.onerror = () => reject(new Error(`Gagal memuat Foto ${index + 1}`));
+                img.src = src;
+            });
+        });
 
-        img.onload = () => {
-            images[index] = img;
-            loaded++;
+        const images = await Promise.all(imgPromises);
 
-            if (loaded === photoStripImages.length) {
-                drawStrip();
-            }
-        };
-
-        img.src = src;
-    });
-
-    function drawStrip() {
         let y = padding + titleHeight;
-
         images.forEach(img => {
             if (!img) return;
 
             drawPhotoFrame(ctx, padding, y, photoWidth, photoHeight, config);
 
             const innerPad = 10;
-
             ctx.save();
             roundedRect(
                 ctx,
@@ -694,7 +727,6 @@ function downloadPhotoStrip() {
                 22
             );
             ctx.clip();
-
             ctx.drawImage(
                 img,
                 padding + innerPad,
@@ -702,17 +734,16 @@ function downloadPhotoStrip() {
                 photoWidth - innerPad * 2,
                 photoHeight - innerPad * 2
             );
-
             ctx.restore();
 
             y += photoHeight + gap;
         });
 
         ctx.fillStyle = config.footer;
-        ctx.font = "700 28px Arial";
+        ctx.font = "700 28px 'Plus Jakarta Sans', Arial, sans-serif";
         ctx.textAlign = "center";
         ctx.fillText(
-            config.footerText || "photobooth moment ✦",
+            config.footerText || "sweet photobooth ✦",
             stripWidth / 2,
             stripCanvas.height - 38
         );
@@ -721,21 +752,20 @@ function downloadPhotoStrip() {
         link.download = `posesnap-${selectedTemplate}-photobooth.png`;
         link.href = stripCanvas.toDataURL("image/png");
         link.click();
+    } catch (err) {
+        console.error("Gagal mendownload strip:", err);
+        alert("Terjadi kesalahan saat memproses gambar strip. Silakan coba lagi.");
     }
 }
 
 function drawPhotoFrame(ctx, x, y, width, height, config) {
     ctx.save();
-
     roundedRect(ctx, x, y, width, height, 28);
-
     ctx.fillStyle = config.slotBg || "#ffffff";
     ctx.fill();
-
     ctx.strokeStyle = config.slotBorder || "#cccccc";
     ctx.lineWidth = 4;
     ctx.stroke();
-
     ctx.restore();
 }
 
@@ -744,18 +774,114 @@ function drawTemplateDecorations(ctx, config) {
 
     config.stickers.forEach(sticker => {
         ctx.save();
-
         ctx.translate(sticker.x, sticker.y);
         ctx.rotate(sticker.rotate || 0);
 
-        ctx.fillStyle = sticker.color || "#000000";
-        ctx.font = `700 ${sticker.size || 22}px "Apple Color Emoji", "Segoe UI Emoji", Arial`;
-        ctx.textAlign = "center";
-        ctx.textBaseline = "middle";
-        ctx.fillText(sticker.text, 0, 0);
+        drawCanvasVectorSticker(ctx, sticker);
 
         ctx.restore();
     });
+}
+
+function drawCanvasVectorSticker(ctx, sticker) {
+    const size = sticker.size || 24;
+    const r = size / 2;
+    ctx.fillStyle = sticker.color || "#ff70b8";
+    ctx.strokeStyle = sticker.color || "#ff70b8";
+
+    switch (sticker.shape) {
+        case "sparkle": {
+            ctx.beginPath();
+            ctx.moveTo(0, -r);
+            ctx.quadraticCurveTo(0, 0, r, 0);
+            ctx.quadraticCurveTo(0, 0, 0, r);
+            ctx.quadraticCurveTo(0, 0, -r, 0);
+            ctx.quadraticCurveTo(0, 0, 0, -r);
+            ctx.closePath();
+            ctx.fill();
+            break;
+        }
+        case "heart": {
+            const s = size / 30;
+            ctx.beginPath();
+            ctx.moveTo(0, 4 * s);
+            ctx.bezierCurveTo(-15 * s, -12 * s, -18 * s, 8 * s, 0, 18 * s);
+            ctx.bezierCurveTo(18 * s, 8 * s, 15 * s, -12 * s, 0, 4 * s);
+            ctx.closePath();
+            ctx.fill();
+            break;
+        }
+        case "star": {
+            ctx.beginPath();
+            for (let i = 0; i < 10; i++) {
+                const angle = (i * Math.PI) / 5 - Math.PI / 2;
+                const radius = i % 2 === 0 ? r : r * 0.45;
+                const x = Math.cos(angle) * radius;
+                const y = Math.sin(angle) * radius;
+                if (i === 0) ctx.moveTo(x, y);
+                else ctx.lineTo(x, y);
+            }
+            ctx.closePath();
+            ctx.fill();
+            break;
+        }
+        case "flower": {
+            const petalR = r * 0.45;
+            for (let i = 0; i < 5; i++) {
+                const angle = (i * 2 * Math.PI) / 5;
+                const px = Math.cos(angle) * (r * 0.55);
+                const py = Math.sin(angle) * (r * 0.55);
+                ctx.beginPath();
+                ctx.arc(px, py, petalR, 0, Math.PI * 2);
+                ctx.fill();
+            }
+            ctx.beginPath();
+            ctx.arc(0, 0, r * 0.32, 0, Math.PI * 2);
+            ctx.fillStyle = "#ffffff";
+            ctx.fill();
+            ctx.fillStyle = sticker.color;
+            break;
+        }
+        case "leaf": {
+            ctx.beginPath();
+            ctx.moveTo(0, -r);
+            ctx.quadraticCurveTo(r * 0.9, 0, 0, r);
+            ctx.quadraticCurveTo(-r * 0.9, 0, 0, -r);
+            ctx.closePath();
+            ctx.fill();
+            break;
+        }
+        case "moon": {
+            ctx.beginPath();
+            ctx.arc(0, 0, r, -Math.PI / 2, Math.PI / 2, false);
+            ctx.quadraticCurveTo(r * 0.2, 0, 0, -r);
+            ctx.closePath();
+            ctx.fill();
+            break;
+        }
+        case "sun": {
+            ctx.beginPath();
+            ctx.arc(0, 0, r * 0.5, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.lineWidth = 2.5;
+            for (let i = 0; i < 8; i++) {
+                const angle = (i * Math.PI) / 4;
+                ctx.beginPath();
+                ctx.moveTo(Math.cos(angle) * (r * 0.65), Math.sin(angle) * (r * 0.65));
+                ctx.lineTo(Math.cos(angle) * r, Math.sin(angle) * r);
+                ctx.stroke();
+            }
+            break;
+        }
+        default: {
+            if (sticker.text) {
+                ctx.font = `700 ${sticker.size || 22}px Arial`;
+                ctx.textAlign = "center";
+                ctx.textBaseline = "middle";
+                ctx.fillText(sticker.text, 0, 0);
+            }
+        }
+    }
 }
 
 function roundedRect(ctx, x, y, width, height, radius) {
@@ -773,24 +899,28 @@ function roundedRect(ctx, x, y, width, height, radius) {
 }
 
 // ===== MEDIAPIPE DETECTION =====
+let lastDetectionTimestamp = 0;
+const DETECTION_INTERVAL_MS = 50; // Throttle to ~20 FPS for optimal performance and battery life
+
 function startMediaPipeDetection() {
     if (detectionAnimationId) {
         cancelAnimationFrame(detectionAnimationId);
     }
 
+    lastDetectionTimestamp = 0;
     detectLoop();
 }
 
 function detectLoop() {
     if (!stream || !faceLandmarker || !handLandmarker) return;
 
-    if (video.currentTime !== lastVideoTime) {
+    const now = performance.now();
+    if (video.currentTime !== lastVideoTime && (now - lastDetectionTimestamp >= DETECTION_INTERVAL_MS)) {
         lastVideoTime = video.currentTime;
+        lastDetectionTimestamp = now;
 
-        const timestamp = performance.now();
-
-        const faceResult = faceLandmarker.detectForVideo(video, timestamp);
-        const handResult = handLandmarker.detectForVideo(video, timestamp);
+        const faceResult = faceLandmarker.detectForVideo(video, now);
+        const handResult = handLandmarker.detectForVideo(video, now);
 
         processExpressionResult(faceResult);
         processHandResult(handResult, faceResult);
@@ -1231,74 +1361,212 @@ function resetExpressionUI() {
     });
 }
 
-// ===== HISTORY LOCAL STORAGE =====
-function getHistory() {
-    const raw = localStorage.getItem(STORAGE_KEY);
+// ===== INDEXEDDB STORAGE =====
+const DB_NAME = "PoseSnapDB";
+const DB_VERSION = 1;
+const STORE_NAME = "sessions";
 
-    return raw ? JSON.parse(raw) : [];
+function openDB() {
+    return new Promise((resolve, reject) => {
+        const req = indexedDB.open(DB_NAME, DB_VERSION);
+        req.onupgradeneeded = (e) => {
+            const db = e.target.result;
+            if (!db.objectStoreNames.contains(STORE_NAME)) {
+                db.createObjectStore(STORE_NAME, { keyPath: "id" });
+            }
+        };
+        req.onsuccess = () => resolve(req.result);
+        req.onerror = () => reject(req.error);
+    });
 }
 
-function setHistory(historyArray) {
+async function migrateLocalStorageToDB() {
     try {
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(historyArray));
-    } catch (e) {
-        console.error("Gagal menyimpan ke localStorage:", e);
-
-        if (e.name === "QuotaExceededError") {
-            alert("Memori riwayat browser penuh. Coba hapus beberapa riwayat lama.");
+        const raw = localStorage.getItem(STORAGE_KEY);
+        if (raw) {
+            const oldList = JSON.parse(raw);
+            if (Array.isArray(oldList) && oldList.length > 0) {
+                const db = await openDB();
+                const tx = db.transaction(STORE_NAME, "readwrite");
+                const store = tx.objectStore(STORE_NAME);
+                for (const item of oldList) {
+                    store.put(item);
+                }
+                await new Promise((res) => {
+                    tx.oncomplete = () => res();
+                    tx.onerror = () => res();
+                });
+            }
+            localStorage.removeItem(STORAGE_KEY);
         }
+    } catch (e) {
+        console.warn("Gagal migrasi riwayat lama dari localStorage:", e);
     }
 }
 
-function saveSessionToHistory() {
+async function getHistory() {
+    try {
+        const db = await openDB();
+        return new Promise((resolve, reject) => {
+            const tx = db.transaction(STORE_NAME, "readonly");
+            const store = tx.objectStore(STORE_NAME);
+            const req = store.getAll();
+            req.onsuccess = () => {
+                const list = req.result || [];
+                list.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
+                resolve(list);
+            };
+            req.onerror = () => reject(req.error);
+        });
+    } catch (e) {
+        console.error("Gagal membaca dari IndexedDB:", e);
+        return [];
+    }
+}
+
+async function saveSessionToHistory() {
     if (photoStripImages.length < 4) return;
 
-    const history = getHistory();
+    try {
+        const db = await openDB();
+        const tx = db.transaction(STORE_NAME, "readwrite");
+        const store = tx.objectStore(STORE_NAME);
 
-    const newEntry = {
-        id: "posesnap_" + Date.now(),
-        timestamp: new Date().toISOString(),
-        template: selectedTemplate,
-        photos: [...photoStripImages]
-    };
+        const newEntry = {
+            id: "posesnap_" + Date.now(),
+            timestamp: new Date().toISOString(),
+            template: selectedTemplate,
+            photos: [...photoStripImages]
+        };
 
-    history.unshift(newEntry);
+        store.put(newEntry);
 
-    if (history.length > HISTORY_MAX) {
-        history.length = HISTORY_MAX;
+        const req = store.getAll();
+        req.onsuccess = () => {
+            const all = req.result || [];
+            all.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
+            if (all.length > HISTORY_MAX) {
+                const excess = all.slice(HISTORY_MAX);
+                excess.forEach(item => store.delete(item.id));
+            }
+        };
+
+        await new Promise((resolve, reject) => {
+            tx.oncomplete = () => resolve();
+            tx.onerror = () => reject(tx.error);
+        });
+    } catch (e) {
+        console.error("Gagal menyimpan sesi ke IndexedDB:", e);
     }
-
-    setHistory(history);
 }
 
-function updateHistoryEntry(historyId) {
-    const history = getHistory();
-    const index = history.findIndex(e => e.id === historyId);
+async function updateHistoryEntry(historyId) {
+    try {
+        const db = await openDB();
+        const tx = db.transaction(STORE_NAME, "readwrite");
+        const store = tx.objectStore(STORE_NAME);
+        const req = store.get(historyId);
 
-    if (index !== -1) {
-        history[index].template = selectedTemplate;
-        history[index].photos = [...photoStripImages];
-        history[index].lastUpdated = new Date().toISOString();
+        req.onsuccess = () => {
+            const entry = req.result;
+            if (entry) {
+                entry.template = selectedTemplate;
+                entry.photos = [...photoStripImages];
+                entry.lastUpdated = new Date().toISOString();
+                store.put(entry);
+            }
+        };
 
-        setHistory(history);
+        await new Promise((resolve, reject) => {
+            tx.oncomplete = () => resolve();
+            tx.onerror = () => reject(tx.error);
+        });
+    } catch (e) {
+        console.error("Gagal mengupdate sesi di IndexedDB:", e);
     }
+}
+
+async function deleteHistoryEntry(historyId, event) {
+    if (event) event.stopPropagation();
+
+    if (!confirm("Hapus sesi foto ini dari riwayat?")) return;
+
+    try {
+        const db = await openDB();
+        const tx = db.transaction(STORE_NAME, "readwrite");
+        const store = tx.objectStore(STORE_NAME);
+        store.delete(historyId);
+
+        await new Promise((resolve, reject) => {
+            tx.oncomplete = () => resolve();
+            tx.onerror = () => reject(tx.error);
+        });
+
+        if (currentLoadedHistoryId === historyId) {
+            currentLoadedHistoryId = null;
+            photoStripImages = [];
+            resetPhotoStrip();
+            resetPreviewBox();
+        }
+
+        await loadAndRenderHistoryList();
+    } catch (e) {
+        console.error("Gagal menghapus riwayat dari IndexedDB:", e);
+    }
+}
+
+async function clearAllHistory() {
+    if (!confirm("Hapus SELURUH riwayat sesi foto? Tindakan ini tidak bisa dibatalkan.")) return;
+
+    try {
+        const db = await openDB();
+        const tx = db.transaction(STORE_NAME, "readwrite");
+        const store = tx.objectStore(STORE_NAME);
+        store.clear();
+
+        await new Promise((resolve, reject) => {
+            tx.oncomplete = () => resolve();
+            tx.onerror = () => reject(tx.error);
+        });
+
+        currentLoadedHistoryId = null;
+        photoStripImages = [];
+        resetPhotoStrip();
+        resetPreviewBox();
+
+        await loadAndRenderHistoryList();
+    } catch (e) {
+        console.error("Gagal menghapus semua riwayat:", e);
+    }
+}
+
+function resetPreviewBox() {
+    previewBox.innerHTML = `
+        <div class="preview-placeholder">
+            <i data-lucide="image"></i>
+            <span>Hasil foto terakhir akan muncul di sini</span>
+        </div>
+    `;
+    if (window.lucide) window.lucide.createIcons();
 }
 
 // ===== HISTORY UI =====
-function loadAndRenderHistoryList() {
+async function loadAndRenderHistoryList() {
     const historyList = document.getElementById("historyList");
     const clearBtn = document.getElementById("clearHistoryBtn");
-    const history = getHistory();
+    if (!historyList) return;
+
+    const history = await getHistory();
 
     historyList.innerHTML = "";
 
     if (history.length === 0) {
         historyList.innerHTML = `<p class="no-history-text">Belum ada riwayat sesi foto.</p>`;
-        clearBtn.style.display = "none";
+        if (clearBtn) clearBtn.style.display = "none";
         return;
     }
 
-    clearBtn.style.display = "block";
+    if (clearBtn) clearBtn.style.display = "inline-flex";
 
     history.forEach(entry => {
         const date = new Date(entry.timestamp);
@@ -1317,35 +1585,43 @@ function loadAndRenderHistoryList() {
         const templateLabel = getTemplateLabel(entry.template);
 
         const item = document.createElement("div");
-
         item.className = "history-item" + (entry.id === currentLoadedHistoryId ? " active" : "");
 
-        item.innerHTML = `
-            <div onclick="loadHistoryEntry('${entry.id}')">
-                <strong>${formattedDate}, ${formattedTime}</strong>
-                <small>Template: ${templateLabel}</small>
-            </div>
+        const contentDiv = document.createElement("div");
+        contentDiv.addEventListener("click", () => loadHistoryEntry(entry.id));
 
-            <button
-                class="btn-danger-sm"
-                onclick="deleteHistoryEntry('${entry.id}', event)"
-                title="Hapus sesi ini"
-            >
-                ×
-            </button>
-        `;
+        const strong = document.createElement("strong");
+        strong.textContent = `${formattedDate}, ${formattedTime}`;
 
+        const small = document.createElement("small");
+        small.textContent = `Template: ${templateLabel}`;
+
+        contentDiv.appendChild(strong);
+        contentDiv.appendChild(small);
+
+        const deleteBtn = document.createElement("button");
+        deleteBtn.className = "btn-danger-sm";
+        deleteBtn.title = "Hapus sesi ini";
+        deleteBtn.innerHTML = `<i data-lucide="x"></i>`;
+        deleteBtn.addEventListener("click", (e) => deleteHistoryEntry(entry.id, e));
+
+        item.appendChild(contentDiv);
+        item.appendChild(deleteBtn);
         historyList.appendChild(item);
     });
+
+    if (window.lucide) {
+        window.lucide.createIcons();
+    }
 }
 
-function loadHistoryEntry(historyId) {
+async function loadHistoryEntry(historyId) {
     if (isPhotoboothRunning || autoCaptureStarted || isRetakeMode) {
         alert("Selesaikan sesi photobooth atau retake yang sedang berjalan dulu.");
         return;
     }
 
-    const history = getHistory();
+    const history = await getHistory();
     const entry = history.find(e => e.id === historyId);
 
     if (!entry) {
@@ -1358,7 +1634,7 @@ function loadHistoryEntry(historyId) {
 
     updatePhotoStrip();
     changeStripTemplate(entry.template);
-    loadAndRenderHistoryList();
+    await loadAndRenderHistoryList();
 
     previewBox.innerHTML = `
         <p style="padding:20px;text-align:center;color:#718096">
@@ -1367,42 +1643,6 @@ function loadHistoryEntry(historyId) {
     `;
 
     suggestionText.textContent = "Sesi riwayat dimuat. Kamu bisa unduh ulang atau mengganti salah satu foto di strip.";
-}
-
-function deleteHistoryEntry(historyId, event) {
-    event.stopPropagation();
-
-    if (!confirm("Hapus sesi foto ini dari riwayat?")) return;
-
-    const history = getHistory().filter(e => e.id !== historyId);
-
-    setHistory(history);
-
-    if (currentLoadedHistoryId === historyId) {
-        currentLoadedHistoryId = null;
-        photoStripImages = [];
-
-        resetPhotoStrip();
-
-        previewBox.innerHTML = "Hasil foto terakhir akan muncul di sini";
-    }
-
-    loadAndRenderHistoryList();
-}
-
-function clearAllHistory() {
-    if (!confirm("Hapus SELURUH riwayat sesi foto? Tindakan ini tidak bisa dibatalkan.")) return;
-
-    localStorage.removeItem(STORAGE_KEY);
-
-    currentLoadedHistoryId = null;
-    photoStripImages = [];
-
-    resetPhotoStrip();
-
-    previewBox.innerHTML = "Hasil foto terakhir akan muncul di sini";
-
-    loadAndRenderHistoryList();
 }
 
 // ===== GLOBAL EXPOSE =====

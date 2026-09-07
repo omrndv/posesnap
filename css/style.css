@@ -133,11 +133,32 @@ body::after {
     color: transparent;
 }
 
-.header h1::after {
-    content: " ✦";
-    font-size: 34px;
-    vertical-align: top;
-    color: var(--secondary);
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 14px;
+    padding: 8px 18px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.85);
+    border: 1px solid rgba(108, 99, 255, 0.15);
+    color: var(--primary);
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: 0.2s ease;
+    box-shadow: 0 4px 12px rgba(76, 72, 140, 0.06);
+}
+
+.back-link:hover {
+    background: var(--white);
+    transform: translateY(-1px);
+    box-shadow: 0 8px 20px rgba(108, 99, 255, 0.12);
+}
+
+.back-link svg {
+    width: 16px;
+    height: 16px;
 }
 
 .header p {
@@ -154,8 +175,10 @@ body::after {
     box-shadow: 0 10px 30px rgba(76, 72, 140, 0.08);
 }
 
-.header p::before {
-    content: "📸";
+.header p svg {
+    width: 17px;
+    height: 17px;
+    color: var(--primary);
 }
 
 .photobooth {
@@ -290,10 +313,6 @@ video {
     backdrop-filter: blur(12px);
 }
 
-.expression-badge::before {
-    content: "🎭";
-}
-
 .countdown {
     position: absolute;
     inset: 0;
@@ -344,16 +363,16 @@ video {
     font-weight: 800;
 }
 
-.expression-item:nth-child(1) strong::before {
-    content: "😀 ";
+.expr-title {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
 }
 
-.expression-item:nth-child(2) strong::before {
-    content: "😎 ";
-}
-
-.expression-item:nth-child(3) strong::before {
-    content: "🤪 ";
+.expr-title svg {
+    width: 16px;
+    height: 16px;
+    color: var(--primary);
 }
 
 .bar {
@@ -375,7 +394,11 @@ video {
 button {
     border: none;
     outline: none;
-    padding: 13px 18px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 13px 20px;
     border-radius: 999px;
     cursor: pointer;
     font-weight: 800;
@@ -383,6 +406,12 @@ button {
     letter-spacing: -0.1px;
     transition: 0.22s ease;
     box-shadow: 0 14px 30px rgba(76, 72, 140, 0.13);
+}
+
+button svg {
+    width: 17px;
+    height: 17px;
+    flex-shrink: 0;
 }
 
 button:hover {
@@ -400,27 +429,15 @@ button:active {
     color: white;
 }
 
-.btn-primary::before {
-    content: "🎥 ";
-}
-
 .btn-secondary {
     background: linear-gradient(135deg, #fff2a3, #ffb86c);
     color: #51351a;
-}
-
-.btn-secondary::before {
-    content: "✨ ";
 }
 
 .btn-danger {
     background: #fff0f3;
     color: #dc3158;
     border: 1px solid rgba(220, 49, 88, 0.12);
-}
-
-.btn-danger::before {
-    content: "⏻ ";
 }
 
 .btn-danger-sm {
@@ -433,12 +450,33 @@ button:active {
     font-size: 20px;
     line-height: 1;
     box-shadow: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .btn-danger-sm:hover {
     background-color: #fee2e2;
     transform: none;
     filter: none;
+}
+
+.clear-history-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    font-weight: 700;
+    padding: 6px 14px;
+    border-radius: 999px;
+    background: #fff0f3;
+    color: #dc3158;
+    border: 1px solid rgba(220, 49, 88, 0.15);
+}
+
+.clear-history-btn svg {
+    width: 14px;
+    height: 14px;
 }
 
 .controls {
@@ -469,6 +507,9 @@ button:active {
 
 .status-box h3,
 .template-heading h3 {
+    display: flex;
+    align-items: center;
+    gap: 8px;
     margin-bottom: 7px;
     color: var(--dark);
     font-size: 18px;
@@ -476,12 +517,11 @@ button:active {
     letter-spacing: -0.4px;
 }
 
-.status-box h3::before {
-    content: "💡 ";
-}
-
-.template-heading h3::before {
-    content: "🎞️ ";
+.status-box h3 svg,
+.template-heading h3 svg {
+    width: 19px;
+    height: 19px;
+    color: var(--primary);
 }
 
 .status-box p,
@@ -649,22 +689,25 @@ button:active {
     box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.86);
 }
 
-.preview-box::before {
-    content: "🖼️";
-    display: inline-flex;
-    justify-content: center;
+.preview-placeholder {
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    width: 42px;
-    height: 42px;
-    margin-right: 8px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.75);
-    box-shadow: 0 10px 25px rgba(76, 72, 140, 0.08);
+    gap: 10px;
+    color: var(--muted);
+    padding: 20px;
 }
 
-.preview-box:has(img)::before {
-    content: "";
-    display: none;
+.preview-placeholder svg {
+    width: 42px;
+    height: 42px;
+    opacity: 0.55;
+    color: var(--primary);
+}
+
+.preview-placeholder span {
+    font-size: 14px;
+    font-weight: 600;
 }
 
 .preview-box img {
@@ -811,9 +854,10 @@ button:active {
     opacity: 1;
 }
 
-.retake-btn span {
-    margin-right: 8px;
-    font-size: 18px;
+.retake-btn svg {
+    width: 15px;
+    height: 15px;
+    margin-right: 6px;
 }
 
 .photo-strip.cute {
@@ -824,11 +868,11 @@ button:active {
 }
 
 .photo-strip.cute::before {
-    content: "✨  💕  ✨";
+    content: "✦ · ✧ · ✦";
 }
 
 .photo-strip.cute::after {
-    content: "♡  ✦  ♡";
+    content: "✧ · ✦ · ✧";
 }
 
 .photo-strip.cute .strip-title {
@@ -851,11 +895,11 @@ button:active {
 }
 
 .photo-strip.starlove::before {
-    content: "✦  ✨  💗  ✨  ✦";
+    content: "✧ · ✦ · ✧";
 }
 
 .photo-strip.starlove::after {
-    content: "♡  ☆  ♡";
+    content: "✦ · ✧ · ✦";
 }
 
 .photo-strip.starlove .strip-title {
@@ -879,11 +923,11 @@ button:active {
 }
 
 .photo-strip.sakura::before {
-    content: "🌸  🍃  🌸";
+    content: "✦ · ✿ · ✦";
 }
 
 .photo-strip.sakura::after {
-    content: "✿  ❀  ✿";
+    content: "✿ · ✦ · ✿";
 }
 
 .photo-strip.sakura .strip-title {
@@ -907,11 +951,11 @@ button:active {
 }
 
 .photo-strip.moonlight::before {
-    content: "☾  ✦  ☆  ✦  ☾";
+    content: "✧ · ✦ · ✧";
 }
 
 .photo-strip.moonlight::after {
-    content: "✧  🌙  ✧";
+    content: "✦ · ✧ · ✦";
 }
 
 .photo-strip.moonlight .strip-title {
@@ -935,11 +979,11 @@ button:active {
 }
 
 .photo-strip.y2k::before {
-    content: "✦  ✨  ★  ✨  ✦";
+    content: "✦ · ✧ · ✦";
 }
 
 .photo-strip.y2k::after {
-    content: "♡  ✧  ♡";
+    content: "✧ · ✦ · ✧";
 }
 
 .photo-strip.y2k .strip-title {
@@ -963,11 +1007,11 @@ button:active {
 }
 
 .photo-strip.noir::before {
-    content: "✦  🖤  ✦";
+    content: "✦ · ✧ · ✦";
 }
 
 .photo-strip.noir::after {
-    content: "♡  🌙  ♡";
+    content: "✧ · ✦ · ✧";
 }
 
 .photo-strip.noir .strip-title {
@@ -992,11 +1036,11 @@ button:active {
 }
 
 .photo-strip.bloom::before {
-    content: "🌼  🍃  🌷  🍃  🌼";
+    content: "✦ · ✿ · ✦";
 }
 
 .photo-strip.bloom::after {
-    content: "❀  ✿  ❀";
+    content: "✿ · ✦ · ✿";
 }
 
 .photo-strip.bloom .strip-title {
@@ -1019,11 +1063,11 @@ button:active {
 }
 
 .photo-strip.chrome::before {
-    content: "✦  ♡  ✦  ♡  ✦";
+    content: "✦ · ✧ · ✦";
 }
 
 .photo-strip.chrome::after {
-    content: "☆  ✧  ☆";
+    content: "✧ · ✦ · ✧";
 }
 
 .photo-strip.chrome .strip-title {
@@ -1048,11 +1092,11 @@ button:active {
 }
 
 .photo-strip.midnight::before {
-    content: "🌙  ✨  ⭐  ✨  🌙";
+    content: "✧ · ✦ · ✧";
 }
 
 .photo-strip.midnight::after {
-    content: "♡  ✦  ♡";
+    content: "✦ · ✧ · ✦";
 }
 
 .photo-strip.midnight .strip-title {
@@ -1077,11 +1121,11 @@ button:active {
 }
 
 .photo-strip.daisy::before {
-    content: "🌼  ✦  🌼  ✦  🌼";
+    content: "✦ · ✿ · ✦";
 }
 
 .photo-strip.daisy::after {
-    content: "❀  🌼  ❀";
+    content: "✿ · ✦ · ✿";
 }
 
 .photo-strip.daisy .strip-title {

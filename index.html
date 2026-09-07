@@ -6,6 +6,7 @@
     <title>PoseSnap - AI Photobooth</title>
 
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
 
     <script>
       tailwind.config = {
@@ -56,9 +57,9 @@
       >
         <a href="#" class="flex items-center gap-3">
           <div
-            class="flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-br from-primary to-secondary text-xl shadow-card"
+            class="flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-br from-primary to-secondary text-white shadow-card"
           >
-            📸
+            <i data-lucide="camera" class="h-5 w-5"></i>
           </div>
 
           <div>
@@ -106,7 +107,7 @@
           <div
             class="mb-6 inline-flex items-center gap-2 rounded-full border border-primary/15 bg-white/80 px-4 py-2 text-sm font-extrabold text-primary shadow-card backdrop-blur-xl"
           >
-            <span>✨</span>
+            <i data-lucide="sparkles" class="h-4 w-4"></i>
             <span>Photobooth pintar dengan AI gesture & ekspresi</span>
           </div>
 
@@ -134,7 +135,7 @@
               href="./photobooth.html"
               class="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-primary to-accent px-7 py-4 text-sm font-extrabold text-white shadow-soft transition hover:-translate-y-1"
             >
-              <span>🎥</span>
+              <i data-lucide="video" class="h-4 w-4"></i>
               Coba PoseSnap
             </a>
 
@@ -142,7 +143,7 @@
               href="#fitur"
               class="inline-flex items-center justify-center gap-2 rounded-full border border-primary/15 bg-white/80 px-7 py-4 text-sm font-extrabold text-slate-700 shadow-card backdrop-blur-xl transition hover:-translate-y-1 hover:text-primary"
             >
-              <span>👀</span>
+              <i data-lucide="eye" class="h-4 w-4"></i>
               Lihat Fitur
             </a>
           </div>
@@ -176,8 +177,9 @@
             class="absolute -left-5 top-10 z-10 hidden rounded-3xl border border-white/80 bg-white/80 p-4 shadow-soft backdrop-blur-xl sm:block"
           >
             <p class="text-xs font-extrabold text-slate-500">Gesture</p>
-            <p class="mt-1 text-lg font-extrabold text-primary">
-              5 Jari Stabil ✋
+            <p class="mt-1 flex items-center gap-1.5 text-lg font-extrabold text-primary">
+              <span>5 Jari Stabil</span>
+              <i data-lucide="hand" class="h-5 w-5"></i>
             </p>
           </div>
 
@@ -185,7 +187,10 @@
             class="absolute -right-3 bottom-16 z-10 hidden rounded-3xl border border-white/80 bg-white/80 p-4 shadow-soft backdrop-blur-xl sm:block"
           >
             <p class="text-xs font-extrabold text-slate-500">Ekspresi</p>
-            <p class="mt-1 text-lg font-extrabold text-secondary">Senyum 😄</p>
+            <p class="mt-1 flex items-center gap-1.5 text-lg font-extrabold text-secondary">
+              <span>Senyum</span>
+              <i data-lucide="smile" class="h-5 w-5"></i>
+            </p>
           </div>
 
           <div
@@ -213,9 +218,9 @@
               ></div>
 
               <div
-                class="absolute left-1/2 top-1/2 flex h-36 w-36 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white/10 text-7xl backdrop-blur"
+                class="absolute left-1/2 top-1/2 flex h-36 w-36 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white/10 backdrop-blur"
               >
-                🙂
+                <i data-lucide="smile" class="h-20 w-20 text-white/80"></i>
               </div>
 
               <div
@@ -292,9 +297,9 @@
             class="rounded-[2rem] border border-white/80 bg-white/75 p-6 shadow-card backdrop-blur-xl transition hover:-translate-y-1 hover:shadow-soft"
           >
             <div
-              class="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/10 text-2xl"
+              class="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/10 text-primary"
             >
-              ✋
+              <i data-lucide="hand" class="h-7 w-7"></i>
             </div>
             <h3 class="text-lg font-extrabold">Gesture 5 Jari</h3>
             <p class="mt-3 text-sm font-medium leading-7 text-slate-600">
@@ -307,9 +312,9 @@
             class="rounded-[2rem] border border-white/80 bg-white/75 p-6 shadow-card backdrop-blur-xl transition hover:-translate-y-1 hover:shadow-soft"
           >
             <div
-              class="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-secondary/10 text-2xl"
+              class="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-secondary/10 text-secondary"
             >
-              🎭
+              <i data-lucide="smile-plus" class="h-7 w-7"></i>
             </div>
             <h3 class="text-lg font-extrabold">Deteksi Ekspresi</h3>
             <p class="mt-3 text-sm font-medium leading-7 text-slate-600">
@@ -321,9 +326,9 @@
             class="rounded-[2rem] border border-white/80 bg-white/75 p-6 shadow-card backdrop-blur-xl transition hover:-translate-y-1 hover:shadow-soft"
           >
             <div
-              class="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-accent/10 text-2xl"
+              class="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-accent/10 text-sky-500"
             >
-              🎞️
+              <i data-lucide="film" class="h-7 w-7"></i>
             </div>
             <h3 class="text-lg font-extrabold">Strip 4 Foto</h3>
             <p class="mt-3 text-sm font-medium leading-7 text-slate-600">
@@ -336,9 +341,9 @@
             class="rounded-[2rem] border border-white/80 bg-white/75 p-6 shadow-card backdrop-blur-xl transition hover:-translate-y-1 hover:shadow-soft"
           >
             <div
-              class="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-yellow-100 text-2xl"
+              class="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-yellow-100 text-yellow-600"
             >
-              🔁
+              <i data-lucide="rotate-ccw" class="h-7 w-7"></i>
             </div>
             <h3 class="text-lg font-extrabold">Retake Foto</h3>
             <p class="mt-3 text-sm font-medium leading-7 text-slate-600">
@@ -463,7 +468,11 @@
               <span class="rounded-lg bg-white"></span>
             </div>
             <h3 class="font-extrabold">Cute Pastel</h3>
-            <p class="mt-1 text-xs font-bold text-slate-500">✨ 💕 ✨</p>
+            <div class="mt-2 flex items-center justify-center gap-1.5 text-pink-400">
+              <i data-lucide="sparkles" class="h-3.5 w-3.5"></i>
+              <i data-lucide="heart" class="h-3.5 w-3.5 fill-pink-300"></i>
+              <i data-lucide="sparkles" class="h-3.5 w-3.5"></i>
+            </div>
           </div>
 
           <div
@@ -477,7 +486,11 @@
               <span class="rounded-lg bg-white"></span>
             </div>
             <h3 class="font-extrabold">Starry Love</h3>
-            <p class="mt-1 text-xs font-bold text-slate-500">✦ 💗 ✦</p>
+            <div class="mt-2 flex items-center justify-center gap-1.5 text-fuchsia-400">
+              <i data-lucide="star" class="h-3.5 w-3.5 fill-fuchsia-300"></i>
+              <i data-lucide="heart" class="h-3.5 w-3.5 fill-fuchsia-400"></i>
+              <i data-lucide="star" class="h-3.5 w-3.5 fill-fuchsia-300"></i>
+            </div>
           </div>
 
           <div
@@ -491,7 +504,11 @@
               <span class="rounded-lg bg-white"></span>
             </div>
             <h3 class="font-extrabold">Sakura Bloom</h3>
-            <p class="mt-1 text-xs font-bold text-slate-500">🌸 🍃 🌸</p>
+            <div class="mt-2 flex items-center justify-center gap-1.5 text-rose-400">
+              <i data-lucide="flower" class="h-3.5 w-3.5"></i>
+              <i data-lucide="leaf" class="h-3.5 w-3.5 text-emerald-400"></i>
+              <i data-lucide="flower" class="h-3.5 w-3.5"></i>
+            </div>
           </div>
 
           <div
@@ -505,7 +522,11 @@
               <span class="rounded-lg bg-white"></span>
             </div>
             <h3 class="font-extrabold">Moonlight</h3>
-            <p class="mt-1 text-xs font-bold text-slate-500">☾ ✦ 🌙</p>
+            <div class="mt-2 flex items-center justify-center gap-1.5 text-violet-400">
+              <i data-lucide="moon" class="h-3.5 w-3.5 fill-violet-300"></i>
+              <i data-lucide="sparkles" class="h-3.5 w-3.5"></i>
+              <i data-lucide="star" class="h-3.5 w-3.5 fill-violet-300"></i>
+            </div>
           </div>
 
           <div
@@ -519,7 +540,11 @@
               <span class="rounded-lg bg-white"></span>
             </div>
             <h3 class="font-extrabold">Y2K Pop</h3>
-            <p class="mt-1 text-xs font-bold text-slate-500">★ ✨ ♡</p>
+            <div class="mt-2 flex items-center justify-center gap-1.5 text-cyan-500">
+              <i data-lucide="zap" class="h-3.5 w-3.5 fill-cyan-300"></i>
+              <i data-lucide="sparkles" class="h-3.5 w-3.5"></i>
+              <i data-lucide="heart" class="h-3.5 w-3.5"></i>
+            </div>
           </div>
 
           <div
@@ -533,7 +558,11 @@
               <span class="rounded-lg bg-white/20"></span>
             </div>
             <h3 class="font-extrabold">Noir Hearts</h3>
-            <p class="mt-1 text-xs font-bold text-slate-300">✦ 🖤 ✦</p>
+            <div class="mt-2 flex items-center justify-center gap-1.5 text-slate-400">
+              <i data-lucide="star" class="h-3.5 w-3.5"></i>
+              <i data-lucide="heart" class="h-3.5 w-3.5 fill-slate-500"></i>
+              <i data-lucide="moon" class="h-3.5 w-3.5"></i>
+            </div>
           </div>
 
           <div
@@ -547,7 +576,11 @@
               <span class="rounded-lg bg-white"></span>
             </div>
             <h3 class="font-extrabold">Bloom Garden</h3>
-            <p class="mt-1 text-xs font-bold text-slate-500">🌼 🍃 🌷</p>
+            <div class="mt-2 flex items-center justify-center gap-1.5 text-emerald-500">
+              <i data-lucide="flower" class="h-3.5 w-3.5"></i>
+              <i data-lucide="leaf" class="h-3.5 w-3.5"></i>
+              <i data-lucide="sun" class="h-3.5 w-3.5 text-amber-400"></i>
+            </div>
           </div>
 
           <div
@@ -561,7 +594,11 @@
               <span class="rounded-lg bg-white"></span>
             </div>
             <h3 class="font-extrabold">Chrome Love</h3>
-            <p class="mt-1 text-xs font-bold text-slate-500">✦ ♡ ✦</p>
+            <div class="mt-2 flex items-center justify-center gap-1.5 text-slate-400">
+              <i data-lucide="sparkles" class="h-3.5 w-3.5"></i>
+              <i data-lucide="heart" class="h-3.5 w-3.5 fill-pink-400"></i>
+              <i data-lucide="sparkles" class="h-3.5 w-3.5"></i>
+            </div>
           </div>
 
           <div
@@ -575,7 +612,11 @@
               <span class="rounded-lg bg-white/20"></span>
             </div>
             <h3 class="font-extrabold">Midnight</h3>
-            <p class="mt-1 text-xs font-bold text-slate-300">🌙 ✨ ⭐</p>
+            <div class="mt-2 flex items-center justify-center gap-1.5 text-sky-300">
+              <i data-lucide="moon" class="h-3.5 w-3.5 fill-sky-300"></i>
+              <i data-lucide="sparkles" class="h-3.5 w-3.5"></i>
+              <i data-lucide="star" class="h-3.5 w-3.5 fill-sky-300"></i>
+            </div>
           </div>
 
           <div
@@ -589,7 +630,11 @@
               <span class="rounded-lg bg-white"></span>
             </div>
             <h3 class="font-extrabold">Retro Daisy</h3>
-            <p class="mt-1 text-xs font-bold text-slate-500">🌼 ✦ 🌼</p>
+            <div class="mt-2 flex items-center justify-center gap-1.5 text-amber-500">
+              <i data-lucide="flower-2" class="h-3.5 w-3.5"></i>
+              <i data-lucide="sun" class="h-3.5 w-3.5"></i>
+              <i data-lucide="flower-2" class="h-3.5 w-3.5"></i>
+            </div>
           </div>
         </div>
       </section>
@@ -598,8 +643,12 @@
         <div
           class="relative overflow-hidden rounded-[2.5rem] bg-gradient-to-br from-primary via-secondary to-accent p-8 text-center shadow-soft sm:p-14"
         >
-          <div class="absolute left-10 top-10 text-5xl opacity-20">✨</div>
-          <div class="absolute bottom-10 right-10 text-6xl opacity-20">📸</div>
+          <div class="absolute left-10 top-10 opacity-20">
+            <i data-lucide="sparkles" class="h-16 w-16 text-white"></i>
+          </div>
+          <div class="absolute bottom-10 right-10 opacity-20">
+            <i data-lucide="camera" class="h-20 w-20 text-white"></i>
+          </div>
 
           <div class="relative mx-auto max-w-3xl">
             <h2
@@ -618,7 +667,7 @@
                 href="./photobooth.html"
                 class="inline-flex items-center justify-center gap-2 rounded-full bg-white px-7 py-4 text-sm font-extrabold text-primary shadow-card transition hover:-translate-y-1"
               >
-                <span>🎥</span>
+                <i data-lucide="video" class="h-4 w-4"></i>
                 Mulai Sekarang
               </a>
 
@@ -626,7 +675,7 @@
                 href="#template"
                 class="inline-flex items-center justify-center gap-2 rounded-full border border-white/30 bg-white/10 px-7 py-4 text-sm font-extrabold text-white backdrop-blur-xl transition hover:-translate-y-1"
               >
-                <span>🎞️</span>
+                <i data-lucide="film" class="h-4 w-4"></i>
                 Lihat Template
               </a>
             </div>
@@ -649,5 +698,9 @@
         <p class="text-sm font-semibold text-slate-500">© 2026 PoseSnap.</p>
       </div>
     </footer>
+
+    <script>
+      lucide.createIcons();
+    </script>
   </body>
 </html>
