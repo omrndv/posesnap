@@ -63,24 +63,24 @@ const BIAS_PRESETS = {
     none: null,
     nct: {
         id: "nct",
-        name: "NCT Mark",
-        src: "./assets/idols/nct_mark.svg",
+        name: "Mark Lee (NCT)",
+        src: "./assets/idols/mark_lee_cutout.png",
         group: "NCT",
-        pose: "K-Heart"
+        pose: "Handsome Smile"
     },
     bts: {
         id: "bts",
-        name: "BTS Bias",
-        src: "./assets/idols/bts_bias.svg",
+        name: "V / Taehyung (BTS)",
+        src: "./assets/idols/v_bts_cutout.png",
         group: "BTS",
-        pose: "Half-Heart Wink"
+        pose: "Cute Smile"
     },
     exo: {
         id: "exo",
-        name: "EXO Bias",
-        src: "./assets/idols/exo_bias.svg",
+        name: "Sehun (EXO)",
+        src: "./assets/idols/sehun_exo_cutout.png",
         group: "EXO",
-        pose: "V-Sign"
+        pose: "Cool Pose"
     }
 };
 
