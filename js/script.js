@@ -258,18 +258,20 @@ async function startCamera() {
         });
 
         video.srcObject = stream;
-
         await waitVideoReady();
 
         suggestionText.textContent = "Kamera aktif. Menyiapkan model AI...";
 
-        await initMediaPipe();
-
-        suggestionText.textContent = "Kamera dan model AI aktif. Tunjukkan 5 jari di samping wajah untuk auto capture.";
-
-        startMediaPipeDetection();
+        try {
+            await initMediaPipe();
+            suggestionText.textContent = "Kamera dan AI aktif. Tunjukkan 5 jari di samping wajah untuk auto capture.";
+            startMediaPipeDetection();
+        } catch (aiError) {
+            console.warn("AI init warning:", aiError);
+            suggestionText.textContent = "Kamera aktif. Model AI sedang diunduh atau mengalami gangguan koneksi.";
+        }
     } catch (error) {
-        console.error("ERROR DETAIL:", error);
+        console.error("CAMERA ERROR DETAIL:", error);
 
         const messages = {
             NotAllowedError: "Izin kamera ditolak. Izinkan kamera di browser dulu.",
@@ -280,8 +282,7 @@ async function startCamera() {
             TrackStartError: "Kamera sedang dipakai aplikasi lain."
         };
 
-        const msg = messages[error.name] || "Terjadi error saat menjalankan kamera atau model AI. Cek console.";
-
+        const msg = messages[error.name] || "Gagal mengakses webcam. Pastikan izin kamera telah diberikan.";
         alert(msg);
         suggestionText.textContent = msg;
     }
