@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 480" width="320" height="480">
+  <defs>
+    <linearGradient id="nctGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ccff00"/>
+      <stop offset="100%" stop-color="#10b981"/>
+    </linearGradient>
+    <linearGradient id="hairGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#2d3748"/>
+      <stop offset="100%" stop-color="#1a202c"/>
+    </linearGradient>
+    <linearGradient id="skinGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffe8d6"/>
+      <stop offset="100%" stop-color="#fcd5ce"/>
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="8" stdDeviation="6" flood-color="#000" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+  
+  <g filter="url(#shadow)">
+    <!-- Badge Label -->
+    <rect x="30" y="30" width="130" height="32" rx="16" fill="url(#nctGrad)"/>
+    <text x="95" y="52" font-family="'Plus Jakarta Sans', sans-serif" font-weight="900" font-size="14" fill="#0f172a" text-anchor="middle">💚 NCT Bias</text>
+
+    <!-- Torso / Jacket -->
+    <path d="M 40 480 C 40 340 70 290 120 270 L 160 290 L 200 270 C 250 290 280 340 280 480 Z" fill="#1e293b"/>
+    <!-- Collar & Shirt -->
+    <path d="M 120 270 L 160 350 L 200 270 Z" fill="#f8fafc"/>
+    <path d="M 140 270 L 160 320 L 180 270 Z" fill="#ccff00"/>
+    <!-- Neck -->
+    <rect x="142" y="220" width="36" height="60" rx="8" fill="url(#skinGrad)"/>
+
+    <!-- Head -->
+    <ellipse cx="160" cy="180" rx="60" ry="70" fill="url(#skinGrad)"/>
+    
+    <!-- Ears -->
+    <ellipse cx="98" cy="185" rx="10" ry="16" fill="url(#skinGrad)"/>
+    <ellipse cx="222" cy="185" rx="10" ry="16" fill="url(#skinGrad)"/>
+
+    <!-- Eyes (Cute smile) -->
+    <path d="M 126 175 Q 138 165 150 175" stroke="#1e293b" stroke-width="4" stroke-linecap="round" fill="none"/>
+    <path d="M 170 175 Q 182 165 194 175" stroke="#1e293b" stroke-width="4" stroke-linecap="round" fill="none"/>
+
+    <!-- Blush -->
+    <ellipse cx="125" cy="192" rx="12" ry="6" fill="#f43f5e" opacity="0.35"/>
+    <ellipse cx="195" cy="192" rx="12" ry="6" fill="#f43f5e" opacity="0.35"/>
+
+    <!-- Smile -->
+    <path d="M 148 205 Q 160 218 172 205" stroke="#e11d48" stroke-width="4" stroke-linecap="round" fill="none"/>
+
+    <!-- Hair -->
+    <path d="M 96 170 C 90 110 110 85 160 85 C 210 85 230 110 224 170 C 210 130 190 125 160 125 C 130 125 110 130 96 170 Z" fill="url(#hairGrad)"/>
+    <path d="M 130 125 Q 145 155 135 165" stroke="url(#hairGrad)" stroke-width="12" stroke-linecap="round" fill="none"/>
+    <path d="M 160 125 Q 170 155 165 165" stroke="url(#hairGrad)" stroke-width="12" stroke-linecap="round" fill="none"/>
+    <path d="M 185 125 Q 195 155 185 160" stroke="url(#hairGrad)" stroke-width="12" stroke-linecap="round" fill="none"/>
+
+    <!-- Korean Heart Hand Gesture -->
+    <g transform="translate(45, 230) rotate(-15)">
+      <ellipse cx="40" cy="50" rx="18" ry="22" fill="url(#skinGrad)"/>
+      <ellipse cx="36" cy="35" rx="8" ry="14" fill="url(#skinGrad)"/>
+      <ellipse cx="46" cy="37" rx="7" ry="13" fill="url(#skinGrad)"/>
+      <!-- Tiny Heart floating -->
+      <path d="M 40 18 C 40 14 34 10 30 14 C 26 18 30 24 40 30 C 50 24 54 18 50 14 C 46 10 40 14 40 18 Z" fill="#ef4444"/>
+    </g>
+  </g>
+</svg>

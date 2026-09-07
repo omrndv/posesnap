@@ -37,6 +37,11 @@
           <div class="camera-box">
             <video id="video" autoplay playsinline></video>
 
+            <!-- Idol Bias Overlay Container -->
+            <div class="bias-overlay-container" id="biasOverlayContainer" style="display: none;">
+              <img id="biasOverlayImg" src="" alt="Idol Bias" />
+            </div>
+
             <div class="expression-badge" id="expressionBadge">Ekspresi: -</div>
 
             <div class="countdown" id="countdown">3</div>
@@ -117,6 +122,89 @@
               Aktifkan kamera, lalu sistem akan menampilkan ekspresi wajah
               pengguna.
             </p>
+          </div>
+
+          <div class="bias-box">
+            <div class="template-heading">
+              <h3>
+                <i data-lucide="sparkles"></i>
+                Foto Bareng Idol (Bias)
+              </h3>
+              <p>Pilih idol favoritmu untuk berpose di samping kamera, atau unggah fotomu sendiri!</p>
+            </div>
+
+            <div class="bias-options">
+              <button
+                type="button"
+                class="bias-option active"
+                data-bias="none"
+                onclick="selectIdolBias('none')"
+              >
+                <div class="bias-avatar bias-avatar-none">
+                  <i data-lucide="user-x"></i>
+                </div>
+                <div>
+                  <strong>Tanpa Idol</strong>
+                  <small>Foto solo biasa</small>
+                </div>
+              </button>
+
+              <button
+                type="button"
+                class="bias-option"
+                data-bias="nct"
+                onclick="selectIdolBias('nct')"
+              >
+                <div class="bias-avatar bias-avatar-nct">💚</div>
+                <div>
+                  <strong>NCT Mark</strong>
+                  <small>K-Heart Pose</small>
+                </div>
+              </button>
+
+              <button
+                type="button"
+                class="bias-option"
+                data-bias="bts"
+                onclick="selectIdolBias('bts')"
+              >
+                <div class="bias-avatar bias-avatar-bts">💜</div>
+                <div>
+                  <strong>BTS Bias</strong>
+                  <small>Half-Heart Wink</small>
+                </div>
+              </button>
+
+              <button
+                type="button"
+                class="bias-option"
+                data-bias="exo"
+                onclick="selectIdolBias('exo')"
+              >
+                <div class="bias-avatar bias-avatar-exo">🤍</div>
+                <div>
+                  <strong>EXO Bias</strong>
+                  <small>V-Sign Pose</small>
+                </div>
+              </button>
+
+              <label class="bias-option bias-upload-option" for="customBiasInput">
+                <input
+                  type="file"
+                  id="customBiasInput"
+                  accept="image/png,image/webp,image/jpeg"
+                  style="display: none;"
+                  onchange="handleCustomBiasUpload(event)"
+                />
+                <div class="bias-avatar bias-avatar-custom" id="customBiasAvatar">
+                  <i data-lucide="upload"></i>
+                </div>
+                <div>
+                  <strong id="customBiasTitle">Upload Idol</strong>
+                  <small>PNG transparan</small>
+                </div>
+              </label>
+            </div>
           </div>
 
           <div class="template-box">

@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 480" width="320" height="480">
+  <defs>
+    <linearGradient id="exoGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="100%" stop-color="#0284c7"/>
+    </linearGradient>
+    <linearGradient id="hairExo" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#475569"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="skinExo" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#fff1e6"/>
+      <stop offset="100%" stop-color="#fed7aa"/>
+    </linearGradient>
+    <filter id="shadowExo" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="8" stdDeviation="6" flood-color="#000" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+  
+  <g filter="url(#shadowExo)">
+    <!-- Badge Label -->
+    <rect x="30" y="30" width="130" height="32" rx="16" fill="url(#exoGrad)"/>
+    <text x="95" y="52" font-family="'Plus Jakarta Sans', sans-serif" font-weight="900" font-size="14" fill="#ffffff" text-anchor="middle">🤍 EXO Bias</text>
+
+    <!-- Torso / Sleek Blazer Outfit -->
+    <path d="M 40 480 C 40 340 70 290 120 270 L 160 290 L 200 270 C 250 290 280 340 280 480 Z" fill="#09090b"/>
+    <path d="M 115 270 L 160 380 L 205 270 Z" fill="#0284c7"/>
+    <path d="M 135 270 L 160 330 L 185 270 Z" fill="#ffffff"/>
+    
+    <!-- Neck -->
+    <rect x="142" y="220" width="36" height="60" rx="8" fill="url(#skinExo)"/>
+
+    <!-- Head -->
+    <ellipse cx="160" cy="180" rx="58" ry="68" fill="url(#skinExo)"/>
+    
+    <!-- Ears -->
+    <ellipse cx="100" cy="185" rx="10" ry="16" fill="url(#skinExo)"/>
+    <ellipse cx="220" cy="185" rx="10" ry="16" fill="url(#skinExo)"/>
+
+    <!-- Eyes (Gentle gaze) -->
+    <circle cx="138" cy="175" r="6" fill="#1e293b"/>
+    <circle cx="136" cy="173" r="2.2" fill="#ffffff"/>
+    <circle cx="182" cy="175" r="6" fill="#1e293b"/>
+    <circle cx="180" cy="173" r="2.2" fill="#ffffff"/>
+    <path d="M 128 165 Q 138 160 148 165" stroke="#334155" stroke-width="3" stroke-linecap="round" fill="none"/>
+    <path d="M 172 165 Q 182 160 192 165" stroke="#334155" stroke-width="3" stroke-linecap="round" fill="none"/>
+
+    <!-- Blush -->
+    <ellipse cx="125" cy="192" rx="12" ry="5" fill="#f43f5e" opacity="0.25"/>
+    <ellipse cx="195" cy="192" rx="12" ry="5" fill="#f43f5e" opacity="0.25"/>
+
+    <!-- Charming Gentle Smile -->
+    <path d="M 148 206 Q 160 216 172 206" stroke="#e11d48" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+
+    <!-- Hair (Slick/Comma hair K-Pop) -->
+    <path d="M 98 165 C 90 105 115 80 160 80 C 205 80 230 105 222 165 C 210 125 185 115 160 115 C 135 115 115 125 98 165 Z" fill="url(#hairExo)"/>
+    <!-- Comma hair swoop -->
+    <path d="M 145 115 C 140 140 120 155 128 168" stroke="url(#hairExo)" stroke-width="15" stroke-linecap="round" fill="none"/>
+    <path d="M 175 115 C 180 145 190 155 185 165" stroke="url(#hairExo)" stroke-width="12" stroke-linecap="round" fill="none"/>
+
+    <!-- Peace / V Sign Gesture -->
+    <g transform="translate(30, 200) rotate(-10)">
+      <ellipse cx="45" cy="60" rx="18" ry="20" fill="url(#skinExo)"/>
+      <!-- V fingers -->
+      <line x1="38" y1="50" x2="30" y2="15" stroke="url(#skinExo)" stroke-width="12" stroke-linecap="round"/>
+      <line x1="48" y1="50" x2="56" y2="15" stroke="url(#skinExo)" stroke-width="12" stroke-linecap="round"/>
+      <!-- Sparkles -->
+      <polygon points="45,0 48,8 56,11 48,14 45,22 42,14 34,11 42,8" fill="#38bdf8"/>
+    </g>
+  </g>
+</svg>

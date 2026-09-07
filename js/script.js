@@ -54,6 +54,36 @@ let lastExpressionLabel = "Datar";
 let isRetakeMode = false;
 let currentLoadedHistoryId = null;
 
+// ===== IDOL BIAS OVERLAY STATE =====
+let selectedBias = "none";
+let customBiasUrl = null;
+const loadedBiasImages = {};
+
+const BIAS_PRESETS = {
+    none: null,
+    nct: {
+        id: "nct",
+        name: "NCT Mark",
+        src: "./assets/idols/nct_mark.svg",
+        group: "NCT",
+        pose: "K-Heart"
+    },
+    bts: {
+        id: "bts",
+        name: "BTS Bias",
+        src: "./assets/idols/bts_bias.svg",
+        group: "BTS",
+        pose: "Half-Heart Wink"
+    },
+    exo: {
+        id: "exo",
+        name: "EXO Bias",
+        src: "./assets/idols/exo_bias.svg",
+        group: "EXO",
+        pose: "V-Sign"
+    }
+};
+
 // ===== TEMPLATE CONFIGS =====
 const TEMPLATE_CONFIGS = {
     cute: {
@@ -423,11 +453,30 @@ function captureImageToData() {
 
     const ctx = canvas.getContext("2d");
 
+    // Draw mirrored video stream
     ctx.save();
     ctx.translate(width, 0);
     ctx.scale(-1, 1);
     ctx.drawImage(video, 0, 0, width, height);
     ctx.restore();
+
+    // Draw active Idol Bias overlay on top (positioned on right side, aligned at bottom)
+    const biasImg = getActiveBiasImageElement();
+    if (biasImg && biasImg.complete && biasImg.naturalWidth > 0) {
+        ctx.save();
+        const idolHeight = height * 0.92;
+        const idolWidth = (biasImg.naturalWidth / biasImg.naturalHeight) * idolHeight;
+        const idolX = width - idolWidth * 0.95;
+        const idolY = height - idolHeight;
+
+        // Soft drop shadow for realistic photocard blend
+        ctx.shadowColor = "rgba(0, 0, 0, 0.35)";
+        ctx.shadowBlur = 18;
+        ctx.shadowOffsetY = 10;
+
+        ctx.drawImage(biasImg, idolX, idolY, idolWidth, idolHeight);
+        ctx.restore();
+    }
 
     return canvas.toDataURL("image/png");
 }
@@ -1646,6 +1695,95 @@ async function loadHistoryEntry(historyId) {
     suggestionText.textContent = "Sesi riwayat dimuat. Kamu bisa unduh ulang atau mengganti salah satu foto di strip.";
 }
 
+// ===== IDOL BIAS HANDLERS =====
+function getActiveBiasImageElement() {
+    if (selectedBias === "none") return null;
+
+    if (selectedBias === "custom" && customBiasUrl) {
+        if (!loadedBiasImages.custom || loadedBiasImages.custom.src !== customBiasUrl) {
+            const img = new Image();
+            img.src = customBiasUrl;
+            loadedBiasImages.custom = img;
+        }
+        return loadedBiasImages.custom;
+    }
+
+    const preset = BIAS_PRESETS[selectedBias];
+    if (preset) {
+        if (!loadedBiasImages[preset.id]) {
+            const img = new Image();
+            img.src = preset.src;
+            loadedBiasImages[preset.id] = img;
+        }
+        return loadedBiasImages[preset.id];
+    }
+
+    return null;
+}
+
+function selectIdolBias(biasId) {
+    selectedBias = biasId;
+
+    const overlayContainer = document.getElementById("biasOverlayContainer");
+    const overlayImg = document.getElementById("biasOverlayImg");
+
+    document.querySelectorAll(".bias-option").forEach(btn => {
+        btn.classList.toggle("active", btn.dataset.bias === biasId);
+    });
+
+    if (biasId === "none") {
+        if (overlayContainer) overlayContainer.style.display = "none";
+        suggestionText.textContent = "Mode solo tanpa idol bias aktif.";
+        return;
+    }
+
+    const preset = BIAS_PRESETS[biasId];
+    if (preset && overlayContainer && overlayImg) {
+        overlayImg.src = preset.src;
+        overlayContainer.style.display = "flex";
+        suggestionText.textContent = `Foto bareng ${preset.name} (${preset.pose}) aktif! Berposelah di samping biasmu!`;
+    }
+}
+
+function handleCustomBiasUpload(event) {
+    const file = event.target.files?.[0];
+    if (!file) return;
+
+    if (!file.type.startsWith("image/")) {
+        alert("Harap pilih file gambar (PNG transparan sangat disarankan).");
+        return;
+    }
+
+    const reader = new FileReader();
+    reader.onload = (e) => {
+        customBiasUrl = e.target.result;
+        selectedBias = "custom";
+
+        const overlayContainer = document.getElementById("biasOverlayContainer");
+        const overlayImg = document.getElementById("biasOverlayImg");
+        const customTitle = document.getElementById("customBiasTitle");
+        const customAvatar = document.getElementById("customBiasAvatar");
+
+        if (customTitle) customTitle.textContent = file.name.slice(0, 10) + "...";
+        if (customAvatar) {
+            customAvatar.innerHTML = `<img src="${customBiasUrl}" alt="Custom Bias" style="width:100%;height:100%;object-fit:cover;border-radius:50%;">`;
+        }
+
+        document.querySelectorAll(".bias-option").forEach(btn => {
+            btn.classList.toggle("active", btn.classList.contains("bias-upload-option"));
+        });
+
+        if (overlayContainer && overlayImg) {
+            overlayImg.src = customBiasUrl;
+            overlayContainer.style.display = "flex";
+        }
+
+        suggestionText.textContent = "Idol bias custom berhasil dipasang! Siap foto bareng biasmu!";
+    };
+
+    reader.readAsDataURL(file);
+}
+
 // ===== GLOBAL EXPOSE =====
 Object.assign(window, {
     startCamera,
@@ -1658,5 +1796,7 @@ Object.assign(window, {
     loadHistoryEntry,
     deleteHistoryEntry,
     loadAndRenderHistoryList,
-    clearAllHistory
+    clearAllHistory,
+    selectIdolBias,
+    handleCustomBiasUpload
 });
